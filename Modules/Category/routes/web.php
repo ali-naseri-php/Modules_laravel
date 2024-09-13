@@ -21,6 +21,7 @@ use Modules\Category\Http\Helper\Category\allcontroller;
 
 Route::prefix('category/')->group(function () {
     Route::get('/all', \Modules\Category\Livewire\Category\AllCategory::class);
+    Route::get('/propertie/{category}', \Modules\Category\Livewire\Category\PropertieForCategory::class)->middleware();
 
 });
 
