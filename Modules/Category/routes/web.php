@@ -19,9 +19,16 @@ use Modules\Category\Http\Helper\Category\allcontroller;
 //    Route::resource('category', CategoryController::class)->names('category');
 //});
 
-Route::prefix('category/')->group(function () {
-    Route::get('/all', \Modules\Category\Livewire\Category\AllCategory::class);
+Route::prefix('category')->group(function () {
+    Route::get('/', \Modules\Category\Livewire\Category\AllCategory::class)->name('category');
+    Route::get('/new', \Modules\Category\Livewire\Category\CreateShowCategory::class)->name('category.new');
+    Route::get('/create/{id}', \Modules\Category\Livewire\Category\CreateCategory::class)->name('category.create');
     Route::get('/propertie/{category}', \Modules\Category\Livewire\Category\PropertieForCategory::class)->middleware();
+Route::post('/',\Modules\Category\Http\Controllers\Category\StoreCategoryController::class)->name('category.store');
+});
+Route::prefix('propertie')->group(function () {
+
+Route::get('/all', \Modules\Category\Livewire\Propertie\AllPropertie::class);
+
 
 });
-
