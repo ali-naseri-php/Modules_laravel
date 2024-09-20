@@ -19,6 +19,20 @@ protected $table = 'categorys';
     {
         //return CategoryFactory::new();
     }
+    public function parentCategory()
+    {
+        return $this->belongsTo(Category::class, 'parent_category');
+    }
+
+    // متدی برای برگرداندن نام دسته‌بندی والد
+    public function name_catagory()
+    {
+        // بررسی می‌کنیم آیا دسته‌بندی والد دارد یا نه
+        if ($this->parentCategory) {
+            return $this->parentCategory->name; // نام دسته‌بندی والد را برمی‌گرداند
+        }
+        return null; // در صورتی که والد نداشته باشد، مقدار null برمی‌گرداند
+    }
 
     public function properties()
     {

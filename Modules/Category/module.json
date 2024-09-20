@@ -6,7 +6,9 @@
     "priority": 0,
     "providers": [
         "Modules\\Category\\Providers\\CategoryServiceProvider",
-        "Modules\\Category\\Providers\\PropertieForCategoryProvider"
+        "Modules\\Category\\Providers\\PropertieForCategoryProvider",
+        "Modules\\Category\\Providers\\EditeCategoryProvider",
+        "Modules\\Category\\Providers\\CreateCategoryProvider"
     ],
     "files": []
 }

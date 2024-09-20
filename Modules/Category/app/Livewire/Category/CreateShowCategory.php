@@ -16,11 +16,10 @@ class CreateShowCategory extends Component
         $this->page = $request->page ?? 1;
     }
 
-    public function render(AllCategoryServics $category, Request $request)
+    public function render(AllCategoryServics $category)
     {
         return view('category::livewire.category.create-show-category', [
-            'categorys' => $category->all_category($this->page),
-            'page' => $this->page
+            'categorys' => $category->all_category(),
         ])->layout('category::layouts.app');
     }
 
