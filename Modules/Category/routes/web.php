@@ -27,6 +27,7 @@ Route::prefix('category')->group(function () {
     Route::get('/{id}/edite', \Modules\Category\Livewire\Category\EditeCategory::class)->middleware();
     Route::post('/', \Modules\Category\Http\Controllers\Category\StoreCategoryController::class)->name('category.store');
     Route::put('/', \Modules\Category\Http\Controllers\Category\UpdateCategoryController::class)->name('category.update');
+    Route::delete('/{id}', \Modules\Category\Http\Controllers\Category\UpdateCategoryController::class)->name('category.update');
 
 
 });

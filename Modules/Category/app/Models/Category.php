@@ -2,14 +2,18 @@
 
 namespace Modules\Category\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Category\Database\Factories\CategoryFactory;
 
 class Category extends Model
 {
+    use SoftDeletes;
     use HasFactory;
-protected $table = 'categorys';
+
+    protected $table = 'categorys';
     /**
      * The attributes that are mass assignable.
      */
@@ -19,6 +23,7 @@ protected $table = 'categorys';
     {
         //return CategoryFactory::new();
     }
+
     public function parentCategory()
     {
         return $this->belongsTo(Category::class, 'parent_category');
@@ -36,6 +41,6 @@ protected $table = 'categorys';
 
     public function properties()
     {
-        return $this->hasOne(Propertie::class,'id_category');
+        return $this->hasOne(Propertie::class, 'id_category');
     }
 }
