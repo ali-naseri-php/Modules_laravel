@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Category\Http\Controllers\CategoryController;
-use Modules\Category\Http\Helper\Category\allcontroller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,15 @@ Route::prefix('category')->group(function () {
 });
 Route::prefix('propertie')->group(function () {
 
-    Route::get('/all', \Modules\Category\Livewire\Propertie\AllPropertie::class);
-
+    Route::get('/', \Modules\Category\Livewire\Propertie\AllPropertie::class)->name('propertie');
+    Route::get('/new', \Modules\Category\Livewire\Propertie\CreatePropertie::class);
+    Route::post('/',\Modules\Category\Http\Controllers\Propertie\StorePropertieController::class)->name('propertie.crate');
 
 });
+
+
+
+
+
+
+

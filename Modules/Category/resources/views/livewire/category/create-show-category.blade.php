@@ -21,4 +21,7 @@
             {{$categorys->links()}}
         </div>
     </div>
+
+
+    
 </div>
