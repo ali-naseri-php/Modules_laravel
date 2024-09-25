@@ -11,13 +11,16 @@
         <br>
 
 
-    <form action="{{route('category.store',['id'=>$id])}}" method="post">
+    <form action="{{route('category.store',['id'=>$id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @error('name')
         <div class="text-red-500 text-sm">{{ $message }}</div>
         @enderror
         <input type="text" name="name">
-
+        @error('images')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+        @enderror
+        <input type="file" name="images">
         <input type="submit">
     </form>
 

@@ -12,6 +12,7 @@ class StoreCategoryController extends Controller
 
     public function __invoke(StoreCategoryRequest $request, StoreCategoryServices $categoryServices)
     {
+
         $statos = $categoryServices->addCategory($request->all());
         if ($statos == 1)
             return redirect('category')->with('success', 'ذخیره‌سازی با موفقیت انجام شد.');

@@ -3,6 +3,7 @@
 namespace Modules\Category\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
 
 class StoreCategoryRequest extends FormRequest
 {
@@ -13,7 +14,14 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string','min:2','max:255'],
-            'id' => ['required', 'exists:categorys,id'],
+            'images' => ['required', 'image','max:10000'],
+            'id' => ['required', function ($attribute, $value, $fail) {
+                if ($value != 0) {
+                    if (! DB::table('categorys')->where('id', $value)->exists()) {
+                        $fail('لطفا درست انتخواب کنید دسته بندی والد را .');
+                    }
+                }
+            },],
 
         ];
     }
@@ -35,7 +43,9 @@ class StoreCategoryRequest extends FormRequest
             'id.max' => 'ایدی بسیار بلند است .',
             'id.min' => 'ایدی بسیار کوتاه  است .',
             'id.exists' => 'ان که انتخواب کرده اید وجود ندارد مطمعن شوید انتخواب کرده اید درست .',
-            'id.required' => 'لطفا اول دسته بندی را نتخواب کنید  .',
+            'images.required' => 'لطفا عکس را انتخواب کنید  .',
+            'images.max' => 'عکس بسیار بزر است لطفا از حجم ان بکاهید  .',
+            'images.image' => 'فایل ارسالی عکس نبود ! ',
 
         ];
     }
@@ -44,6 +54,10 @@ class StoreCategoryRequest extends FormRequest
         $errors = $validator->errors();
 
         if ($errors->has('name')) {
+            // ریدایرکت به صفحه دسته‌بندی
+            throw new \Illuminate\Validation\ValidationException($validator, redirect()->back()->withErrors($errors)->withInput());
+        }
+        if ($errors->has('images')) {
             // ریدایرکت به صفحه دسته‌بندی
             throw new \Illuminate\Validation\ValidationException($validator, redirect()->back()->withErrors($errors)->withInput());
         }
