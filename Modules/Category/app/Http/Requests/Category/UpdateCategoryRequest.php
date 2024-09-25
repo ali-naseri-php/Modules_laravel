@@ -13,16 +13,19 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-//        $this->dd('ali naseri');
+        //        $this->dd('ali naseri');
 
         return [
-            'name' => ['required', 'string', 'min:2', 'max:255'],
+            'name' => ['max:255'],
+            'images' => ['image', 'max:255'],
 
             'parent_category' => [
                 function ($attribute, $value, $fail) {
                     if ($value != 0) {
-                        if (! DB::table('categorys')->where('id', $value)->exists()) {
-                            $fail('لطفا درست انتخواب کنید دسته بندی والد را .');
+                        if ($value != -1) {
+                            if (!DB::table('categorys')->where('id', $value)->exists()) {
+                                $fail('لطفا درست انتخواب کنید دسته بندی والد را .');
+                            }
                         }
                     }
                 },

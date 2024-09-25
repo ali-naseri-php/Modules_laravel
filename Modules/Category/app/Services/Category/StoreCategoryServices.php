@@ -17,7 +17,7 @@ class StoreCategoryServices
         $category = new Category();
         $category->parent_category = $data['id'];
         $category->name = $data['name'];
-        $category->images =$file_name;
+        $category->images ='images/'.$file_name;
         $st = $category->save();
 
         return $st;
