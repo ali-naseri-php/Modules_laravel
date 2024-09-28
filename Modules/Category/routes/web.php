@@ -35,7 +35,10 @@ Route::prefix('propertie')->group(function () {
 
     Route::get('/', \Modules\Category\Livewire\Propertie\AllPropertie::class)->name('propertie');
     Route::get('/new', \Modules\Category\Livewire\Propertie\CreatePropertie::class);
+    Route::get('/create/{id}', \Modules\Category\Livewire\Propertie\CreatePropertie::class);
+    Route::get('/{id}/edite', \Modules\Category\Livewire\Propertie\EditePropertie::class);
     Route::post('/',\Modules\Category\Http\Controllers\Propertie\StorePropertieController::class)->name('propertie.crate');
+    Route::put('/',\Modules\Category\Http\Controllers\Propertie\UpdatePropertieController::class)->name('propertie.update');
 
 });
 

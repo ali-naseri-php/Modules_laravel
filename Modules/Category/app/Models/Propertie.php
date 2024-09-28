@@ -20,4 +20,17 @@ class Propertie extends Model
     {
         //return PropertieFactory::new();
     }
+
+    public function nameCategory()
+    {
+        $propertiname=$this->category()->get();
+//dd($propertiname[0]->name);
+        return $propertiname[0]->name;
+
+}
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_category','id');
+    }
 }
