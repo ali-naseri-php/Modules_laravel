@@ -39,6 +39,7 @@ Route::prefix('propertie')->group(function () {
     Route::get('/{id}/edite', \Modules\Category\Livewire\Propertie\EditePropertie::class);
     Route::post('/',\Modules\Category\Http\Controllers\Propertie\StorePropertieController::class)->name('propertie.crate');
     Route::put('/',\Modules\Category\Http\Controllers\Propertie\UpdatePropertieController::class)->name('propertie.update');
+    Route::delete('/{id}',\Modules\Category\Http\Controllers\Propertie\UpdatePropertieController::class)->name('propertie.update');
 
 });
 

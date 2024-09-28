@@ -4,10 +4,12 @@ namespace Modules\Category\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Category\Database\Factories\PropertieFactory;
 
 class Propertie extends Model
 {
+    use SoftDeletes;
     use HasFactory;
     protected $table ='properties';
 
