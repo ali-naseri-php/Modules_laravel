@@ -16,12 +16,13 @@ class AllPropertieServies
 
             $data = Cache::remember('propertei', 120, function () {
                 //                sleep(5);
-                $data= Propertie::paginate(5);
+                $data= Propertie::with('category')->paginate(5);
+
                 return $data;
             });
 
         } else {
-            $data = Propertie::paginate(5);
+            $data = Propertie::with('category')->paginate(5);
         }
         return $data;
 

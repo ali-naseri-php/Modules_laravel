@@ -12,6 +12,7 @@ export default defineConfig({
             publicDirectory: '../../public',
             buildDirectory: 'build-category',
             input: [
+                'Modules/Category/resources/assets/sass/tailwindCss.css', // مسیر فایل CSS
                 __dirname + '/resources/assets/sass/app.scss',
                 __dirname + '/resources/assets/js/app.js'
             ],

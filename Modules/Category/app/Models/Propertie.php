@@ -27,6 +27,7 @@ class Propertie extends Model
     {
         $propertiname=$this->category()->get();
 //dd($propertiname[0]->name);
+
         return $propertiname[0]->name;
 
 }

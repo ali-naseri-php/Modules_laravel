@@ -18,6 +18,9 @@ class PropertieForCategoryProvider extends ServiceProvider
 
             $categoryId = $request->route('category');    // گرفتن پارامتر id از URL
 
+
+
+
             // حالا می‌توانید این پارامتر را به کلاس یا سرویس مورد نظر ارسال کنید
             return new PropertieForCategoryServics($categoryId);
         });

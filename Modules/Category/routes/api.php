@@ -17,3 +17,23 @@ use Modules\Category\Http\Controllers\CategoryController;
 //Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
 //    Route::apiResource('category', CategoryController::class)->names('category');
 //});
+
+Route::prefix('/category')->group(function () {
+
+    Route::get('/',\Modules\Category\Http\Controllers\Api\Category\AllCategoryController::class);
+    Route::get('/properti/{category}',\Modules\Category\Http\Controllers\Api\Category\PropertiForController::class);
+
+
+});
+Route::prefix('/properti')->group(function () {
+    Route::get('/',\Modules\Category\Http\Controllers\Api\Properti\AllPropertiController::class);
+
+
+
+});
+
+
+
+
+
+
