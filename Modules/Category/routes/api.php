@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Category\Http\Controllers\CategoryController;
 
 /*
  *--------------------------------------------------------------------------
@@ -18,20 +17,19 @@ use Modules\Category\Http\Controllers\CategoryController;
 //    Route::apiResource('category', CategoryController::class)->names('category');
 //});
 
-Route::prefix('/category')->group(function () {
+Route::prefix('/v1')->group(function () {
 
-    Route::get('/',\Modules\Category\Http\Controllers\Api\Category\AllCategoryController::class);
-    Route::get('/properti/{category}',\Modules\Category\Http\Controllers\Api\Category\PropertiForController::class);
+    Route::prefix('/category')->group(function () {
+        Route::get('/', \Modules\Category\Http\Controllers\Api\v1\Category\AllCategoryController::class);
+        Route::get('/properti/{category}', \Modules\Category\Http\Controllers\Api\v1\Category\PropertiForController::class);
+
+    });
+    Route::prefix('/properti')->group(function () {
+        Route::get('/', \Modules\Category\Http\Controllers\Api\v1\Properti\AllPropertiController::class);
 
 
+    });
 });
-Route::prefix('/properti')->group(function () {
-    Route::get('/',\Modules\Category\Http\Controllers\Api\Properti\AllPropertiController::class);
-
-
-
-});
-
 
 
 
