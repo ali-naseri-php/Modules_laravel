@@ -9,6 +9,7 @@
         "darkaonline/l5-swagger": "^8.6",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "laravel/ui": "^4.5",
         "livewire/livewire": "^3.5",
         "mhmiton/laravel-modules-livewire": "^3.0",
         "nwidart/laravel-modules": "^11.0"
