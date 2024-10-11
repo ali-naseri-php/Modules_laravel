@@ -29,14 +29,14 @@ class UpdatePropertieRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'لطفاً نام را وارد کنید.',
-            'name.string' => 'لطفا نام مناسب انتخواب کنید .',
-            'name.min' => 'اسم بسیار کوتاه است .',
-            'name.max' => 'اسم بسیار بلند است .',
-            'id_category.max' => 'ایدی بسیار بلند است .',
-            'id_category.min' => 'ایدی بسیار کوتاه  است .',
-            'id_category.exists' => 'ان که انتخواب کرده اید وجود ندارد مطمعن شوید انتخواب کرده اید درست .',
-            'id_category.required' => 'لطفا اول دسته بندی را نتخواب کنید  .',
+            'name.required' => trans('category::massages.required'),
+            'name.string' => trans('category::massages.string'),
+            'name.min' => trans('category::massages.min'),
+            'name.max' =>  trans('category::massages.max'),
+            'id_category.max' => trans('category::massages.max'),
+            'id_category.min' =>  trans('category::massages.min'),
+            'id_category.exists' =>  trans('category::massages.exists'),
+            'id_category.required' => trans('category::massages.required'),
 
         ];
     }

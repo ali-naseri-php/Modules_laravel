@@ -24,7 +24,7 @@ class UpdateCategoryRequest extends FormRequest
                     if ($value != 0) {
                         if ($value != -1) {
                             if (!DB::table('categorys')->where('id', $value)->exists()) {
-                                $fail('لطفا درست انتخواب کنید دسته بندی والد را .');
+                                $fail( trans('category::massages.select'),);
                             }
                         }
                     }
@@ -46,11 +46,11 @@ class UpdateCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'لطفاً نام را وارد کنید.',
-            'name.string' => 'لطفا نام مناسب انتخواب کنید .',
-            'name.min' => 'اسم بسیار کوتاه است .',
-            'name.max' => 'اسم بسیار بلند است .',
-            'parent_category.exists' => 'لطفا درست انتخواب نمایید  ',
+            'name.required' =>  trans('category::massages.required'),
+            'name.string' => trans('category::massages.string'),
+            'name.min' =>  trans('category::massages.min'),
+            'name.max' =>  trans('category::massages.max'),
+            'parent_category.exists' =>  trans('category::massages.exists'),
 
         ];
     }

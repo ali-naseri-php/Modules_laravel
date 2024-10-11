@@ -1,4 +1,7 @@
 {
     "Posts": true,
-    "Category": true
+    "Category": true,
+    "Product": true,
+    "Management": true,
+    "ProductManagement": true
 }

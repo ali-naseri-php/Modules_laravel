@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Category/app" isTestSource="false" packagePrefix="Modules\Category\" />
+      <sourceFolder url="file://$MODULE_DIR$/Category/database/factories" isTestSource="false" packagePrefix="Modules\Category\Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/Category/database/seeders" isTestSource="false" packagePrefix="Modules\Category\Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/Category/tests" isTestSource="true" packagePrefix="Modules\Category\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/ProductManagement/app" isTestSource="false" packagePrefix="Modules\ProductManagement\" />
+      <sourceFolder url="file://$MODULE_DIR$/ProductManagement/database/factories" isTestSource="false" packagePrefix="Modules\ProductManagement\Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/ProductManagement/database/seeders" isTestSource="false" packagePrefix="Modules\ProductManagement\Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/ProductManagement/tests" isTestSource="true" packagePrefix="Modules\ProductManagement\Tests\" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

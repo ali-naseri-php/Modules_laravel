@@ -36,16 +36,16 @@ class StoreCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'لطفاً نام را وارد کنید.',
-            'name.string' => 'لطفا نام مناسب انتخواب کنید .',
-            'name.min' => 'اسم بسیار کوتاه است .',
-            'name.max' => 'اسم بسیار بلند است .',
-            'id.max' => 'ایدی بسیار بلند است .',
-            'id.min' => 'ایدی بسیار کوتاه  است .',
-            'id.exists' => 'ان که انتخواب کرده اید وجود ندارد مطمعن شوید انتخواب کرده اید درست .',
-            'images.required' => 'لطفا عکس را انتخواب کنید  .',
-            'images.max' => 'عکس بسیار بزر است لطفا از حجم ان بکاهید  .',
-            'images.image' => 'فایل ارسالی عکس نبود ! ',
+            'name.required' =>trans('category::massages.required'),
+            'name.string' => trans('category::massages.string'),
+            'name.min' => trans('category::massages.min'),
+            'name.max' =>trans('category::massages.max'),
+            'id.max' =>trans('category::massages.max'),
+            'id.min' => trans('category::massages.min'),
+            'id.exists' => trans('category::massages.exists'),
+            'images.required' => trans('category::massages.required'),
+            'images.max' =>trans('category::massages.max'),
+            'images.image' =>trans('category::massages.image'),
 
         ];
     }
