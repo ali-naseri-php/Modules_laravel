@@ -1,0 +1,41 @@
+{
+    "name": "nwidart/productmanagement",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ProductManagement\\": "app/",
+            "Modules\\ProductManagement\\Database\\Factories\\": "database/factories/",
+            "Modules\\ProductManagement\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\ProductManagement\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "livewire/livewire": "^3.5",
+        "mhmiton/laravel-modules-livewire": "^3.0",
+        "laravel/framework": "^11.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true
+        }
+    }
+
+}
