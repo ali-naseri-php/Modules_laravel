@@ -1,0 +1,21 @@
+{
+    "name": "ProductManagement",
+    "alias": "productmanagement",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ProductManagement\\Providers\\ProductManagementServiceProvider"
+    ],
+    "files": [],
+    "require": {
+        "livewire/livewire": "^3.5",
+        "mhmiton/laravel-modules-livewire": "^3.0",
+        "laravel/framework": "^11.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true
+        }
+    }
+}

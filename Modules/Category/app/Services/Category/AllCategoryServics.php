@@ -8,11 +8,16 @@ use Modules\Category\Models\Category;
 
 class  AllCategoryServics
 {
-
-
-    public function all_category($page = 1)
+    public $page;
+    public function __construct($page)
     {
-        if ($page == 1 or $page==null) {
+        $this->page = $page;
+    }
+
+
+    public function all_category( )
+    {
+        if ($this->page == 1 ) {
 
             $data = Cache::remember('category', 120, function () {
 //                sleep(5);

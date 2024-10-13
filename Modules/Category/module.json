@@ -7,6 +7,7 @@
     "providers": [
         "Modules\\Category\\Providers\\CategoryServiceProvider",
         "Modules\\Category\\Providers\\PropertieForCategoryProvider",
+        "Modules\\Category\\Providers\\AllCategoryProvider",
         "Modules\\Category\\Providers\\EditeCategoryProvider",
         "Modules\\Category\\Providers\\CreateCategoryProvider"
     ],

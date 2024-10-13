@@ -3,9 +3,7 @@
 namespace Modules\Category\Livewire\Category;
 
 
-use Illuminate\Http\Request;
 use Livewire\Component;
-use Modules\Category\Models\Category;
 use Modules\Category\Services\Category\AllCategoryServics;
 
 class AllCategory extends Component
@@ -17,8 +15,8 @@ class AllCategory extends Component
     }
 
 
-    public function render(AllCategoryServics $allServices,Request $request)
+    public function render(AllCategoryServics $allServices)
     {
-        return view('category::livewire.category.all-category',['category'=>$allServices->all_category($request->page)])->layout('category::layouts.app');
+        return view('category::livewire.category.all-category',['category'=>$allServices->all_category()])->layout('category::layouts.app');
     }
 }

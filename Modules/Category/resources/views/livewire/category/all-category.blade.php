@@ -29,25 +29,7 @@
 
     <div class="flex justify-center mt-4">
         <nav class="flex">
-            @if ($category->onFirstPage())
-                <span class="disabled text-gray-500 cursor-not-allowed py-2 px-4 border border-gray-300 rounded-l">Previous</span>
-            @else
-                <a href="{{ $category->previousPageUrl() }}" class="text-blue-600 py-2 px-4 border border-gray-300 rounded-l hover:bg-blue-500 hover:text-white">Previous</a>
-            @endif
-
-            @foreach ($category->getUrlRange(1, $category->lastPage()) as $page => $url)
-                @if ($page == $category->currentPage())
-                    <span class="text-white bg-blue-600 py-2 px-4 border border-gray-300">{{ $page }}</span>
-                @else
-                    <a href="{{ $url }}" class="text-blue-600 py-2 px-4 border border-gray-300 hover:bg-blue-500 hover:text-white">{{ $page }}</a>
-                @endif
-            @endforeach
-
-            @if ($category->hasMorePages())
-                <a href="{{ $category->nextPageUrl() }}" class="text-blue-600 py-2 px-4 border border-gray-300 rounded-r hover:bg-blue-500 hover:text-white">Next</a>
-            @else
-                <span class="disabled text-gray-500 cursor-not-allowed py-2 px-4 border border-gray-300 rounded-r">Next</span>
-            @endif
+           {{$category->links()}}
         </nav>
     </div>
 </div>
