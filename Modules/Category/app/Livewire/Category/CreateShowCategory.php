@@ -28,6 +28,6 @@ class CreateShowCategory extends Component
 
 
 
-        return redirect('category/create/' . $id);
+        return redirect('' . $id);
     }
 }

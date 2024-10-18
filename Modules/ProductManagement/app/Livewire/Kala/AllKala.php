@@ -12,6 +12,6 @@ class AllKala extends Component
     public function render(AllKalaServices $allKalaServices)
     {
 
-        return view('productmanagement::livewire.kala.all-kala',['kala'=>$allKalaServices->all()])->layout('category::layouts.app');
+        return view('productmanagement::livewire.kala.all-kala',['kalas'=>$allKalaServices->all()])->layout('category::layouts.app');
     }
 }

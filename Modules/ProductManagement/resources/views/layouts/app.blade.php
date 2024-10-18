@@ -1,8 +1,11 @@
 <html>
 <head>
     <!-- استایل‌های Livewire -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     @livewireStyles
-    {{-- @vite(['resources/js/app.js']) --}}
+    <title>a</title>{{-- @vite(['resources/js/app.js']) --}}
+
 
 
 </head>

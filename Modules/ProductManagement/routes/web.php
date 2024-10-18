@@ -14,9 +14,10 @@ use Modules\ProductManagement\Http\Controllers\ProductManagementController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('productmanagement', ProductManagementController::class)->names('productmanagement');
-});
+//Route::group([], function () {
+//    Route::resource('productmanagement', ProductManagementController::class)->names('productmanagement');
+//});
 Route::prefix('kala')->group(function () {
     Route::get('',\Modules\ProductManagement\Livewire\Kala\AllKala::class);
-});
+    Route::get('new',\Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class);
+ });
