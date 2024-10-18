@@ -14,7 +14,7 @@ class AllCategoryForKalaProvider extends ServiceProvider
      */
     public function register(): void
     {
-        {
+
             $this->app->singleton(AllCategoryServices::class, function ($app) {
                 $request = $app->make(Request::class);  // دریافت شیء Request
 
@@ -24,7 +24,7 @@ class AllCategoryForKalaProvider extends ServiceProvider
                 // حالا می‌توانید این پارامتر را به کلاس یا سرویس مورد نظر ارسال کنید
                 return new AllCategoryServices($page);
             });
-        }
+
 
     }
 

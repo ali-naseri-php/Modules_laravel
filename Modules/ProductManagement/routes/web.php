@@ -20,4 +20,6 @@ use Modules\ProductManagement\Http\Controllers\ProductManagementController;
 Route::prefix('kala')->group(function () {
     Route::get('',\Modules\ProductManagement\Livewire\Kala\AllKala::class);
     Route::get('new',\Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class);
- });
+    Route::post('crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate');
+    Route::post('',\Modules\ProductManagement\Http\Controllers\Kala\StoreKalaController::class)->name('kala.store');
+});

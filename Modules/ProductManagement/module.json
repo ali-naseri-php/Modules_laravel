@@ -6,7 +6,8 @@
     "priority": 0,
     "providers": [
         "Modules\\ProductManagement\\Providers\\ProductManagementServiceProvider",
-        "Modules\\ProductManagement\\Providers\\AllCategoryForKalaProvider"
+        "Modules\\ProductManagement\\Providers\\AllCategoryForKalaProvider",
+        "Modules\\ProductManagement\\Providers\\PropertiForAddKalaProvider"
     ],
     "files": [],
     "require": {

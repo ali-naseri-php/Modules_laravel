@@ -8,7 +8,7 @@ use Modules\ProductManagement\Services\Kala\AllCategoryServices;
 
 class SelectCategoryForCreateKala extends Component
 {
-    public $category_create;
+    public $id_category;
 
     public function render(AllCategoryServices $allCategoryServices)
     {
