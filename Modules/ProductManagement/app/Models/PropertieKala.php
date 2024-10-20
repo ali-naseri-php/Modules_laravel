@@ -9,6 +9,7 @@ use Modules\ProductManagement\Database\Factories\PropertieKalaFactory;
 class propertieKala extends Model
 {
     use HasFactory;
+    protected $table='properties_kalas';
 
     /**
      * The attributes that are mass assignable.

@@ -6,7 +6,7 @@ namespace Modules\ProductManagement\Services\Kala;
 use Modules\ProductManagement\Models\Propertie;
 
 
-class PropertiForAddKalaServices
+class PropertiForKalaServices
 {
     protected $id_category;
 

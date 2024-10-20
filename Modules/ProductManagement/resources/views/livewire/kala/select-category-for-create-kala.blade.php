@@ -4,10 +4,10 @@
         @error('id')
         <div class="text-red-500 text-sm">{{ $message }}</div>
         @enderror
-        <form  action="{{ route('kala.crate') }}" method="post">
+        <form  action="{{ route('kala.crate') }}" method="get">
             <div>
 @csrf
-                <select wire:model="id_category" name="id_category">
+                <select type="hidden" wire:model="id_category" name="id_category">
 
                     @foreach($categorys as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>

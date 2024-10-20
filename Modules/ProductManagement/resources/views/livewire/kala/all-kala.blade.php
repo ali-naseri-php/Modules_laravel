@@ -1,4 +1,11 @@
 <div>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     @foreach($kalas as $kala)
 
         <p>{{$kala->name}}</p>

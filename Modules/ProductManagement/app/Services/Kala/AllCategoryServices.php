@@ -8,7 +8,7 @@ use Modules\ProductManagement\Models\Category;
 
 class AllCategoryServices
 {
-    public $page;
+    protected $page;
     public function __construct($page)
     {
         $this->page=$page;
