@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Modules\ProductManagement\Http\Requests\CreateKalaRequest;
-use Modules\ProductManagement\Services\Kala\PropertiForAddKalaServices;
+use Modules\ProductManagement\Services\Kala\PropertiForKalaServices;
 
 
 class CreateKala extends Component
@@ -16,7 +16,7 @@ class CreateKala extends Component
     {
 
     }
-    public function render(PropertiForAddKalaServices $addKalaServices)
+    public function render(PropertiForKalaServices $addKalaServices)
     {
 
         return view('productmanagement::livewire.kala.create-kala',['properti'=>$addKalaServices->all()])->layout('productmanagement::layouts.app');

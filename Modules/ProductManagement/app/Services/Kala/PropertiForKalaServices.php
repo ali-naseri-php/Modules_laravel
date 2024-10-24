@@ -16,14 +16,26 @@ class PropertiForKalaServices
     }
 
 
-    public function all()
+    public function all($id_category=null)
     {
-        $data = Propertie::join('categorys','properties.id_category','=','categorys.id')
-            ->select('properties.id','properties.name')
-            ->where('properties.id_category','=',$this->id_category)
-            ->get();
-//        dd($data);
-        return $data;
+        if ($id_category==null) {
+            $data = Propertie::join('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->select('properties.id', 'properties.name')
+                ->where('properties.id_category', '=', $this->id_category)
+                ->get();
+            //        dd($data);
+            return $data;
+        }
+        else{
+            $data = Propertie::join('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->select('properties.id', 'properties.name')
+                ->where('properties.id_category', '=', $id_category)
+                ->get();
+            //        dd($data);
+            return $data;
+
+
+        }
     }
 
 

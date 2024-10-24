@@ -6,7 +6,7 @@
         @enderror
         <form  action="{{ route('kala.crate') }}" method="get">
             <div>
-@csrf
+                @csrf
                 <select type="hidden" wire:model="id_category" name="id_category">
 
                     @foreach($categorys as $category)
