@@ -1,6 +1,6 @@
 <div>
 
-    <form action="{{ route('kala.update') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('kala.update' ,['id'=>$kala->id]) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <p> نام قبلی {{$kala->name}}</p>

@@ -22,8 +22,6 @@ Route::prefix('kala')->group(function () {
     Route::get('new',\Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class);
     Route::get('crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate');
     Route::post('',\Modules\ProductManagement\Http\Controllers\Kala\StoreKalaController::class)->name('kala.store');
-    Route::put('',function (){
-        dd('ali naseri');
-    })->name('kala.update');
+    Route::put('/{id}',\Modules\ProductManagement\Http\Controllers\Kala\UpdateKalaController::class)->name('kala.update');
     Route::get('edite/{id}',\Modules\ProductManagement\Livewire\Kala\EditeKala::class)->name('kala.edite');
 });
