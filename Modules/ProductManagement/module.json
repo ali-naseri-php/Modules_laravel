@@ -9,6 +9,7 @@
         "Modules\\ProductManagement\\Providers\\AllCategoryForKalaProvider",
         "Modules\\ProductManagement\\Providers\\PropertiForAddKalaProvider",
         "Modules\\ProductManagement\\Providers\\UpdateKalaProvider",
+        "Modules\\ProductManagement\\Providers\\DeleteKalaProvider",
         "Modules\\ProductManagement\\Providers\\SelectCtegoryForKalaProvider"
     ],
     "files": [],

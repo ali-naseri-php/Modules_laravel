@@ -23,5 +23,6 @@ Route::prefix('kala')->group(function () {
     Route::get('crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate');
     Route::post('',\Modules\ProductManagement\Http\Controllers\Kala\StoreKalaController::class)->name('kala.store');
     Route::put('/{id}',\Modules\ProductManagement\Http\Controllers\Kala\UpdateKalaController::class)->name('kala.update');
+    Route::delete('/{id}',\Modules\ProductManagement\Http\Controllers\Kala\DeleteKalaController::class)->name('kala.delete');
     Route::get('edite/{id}',\Modules\ProductManagement\Livewire\Kala\EditeKala::class)->name('kala.edite');
 });
