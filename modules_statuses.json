@@ -3,5 +3,6 @@
     "Category": true,
     "Product": true,
     "Management": true,
-    "ProductManagement": true
+    "ProductManagement": true,
+    "ProductDisplay": true
 }
