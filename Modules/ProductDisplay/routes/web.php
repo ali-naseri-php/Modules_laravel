@@ -17,3 +17,4 @@ use Modules\ProductDisplay\Http\Controllers\ProductDisplayController;
 Route::group([], function () {
     Route::resource('productdisplay', ProductDisplayController::class)->names('productdisplay');
 });
+ Route::get('kala',\Modules\ProductDisplay\Livewire\Kala\IndexKala::class);

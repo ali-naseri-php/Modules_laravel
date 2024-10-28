@@ -18,7 +18,7 @@ use Modules\ProductManagement\Http\Controllers\ProductManagementController;
 //    Route::resource('productmanagement', ProductManagementController::class)->names('productmanagement');
 //});
 Route::prefix('kala')->group(function () {
-    Route::get('',\Modules\ProductManagement\Livewire\Kala\AllKala::class)->name('kala.index');
+//    Route::get('',\Modules\ProductManagement\Livewire\Kala\AllKala::class)->name('kala.index');
     Route::get('new',\Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class);
     Route::get('crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate');
     Route::post('',\Modules\ProductManagement\Http\Controllers\Kala\StoreKalaController::class)->name('kala.store');
