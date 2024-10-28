@@ -6,7 +6,8 @@
     "priority": 0,
     "providers": [
         "Modules\\ProductDisplay\\Providers\\ProductDisplayServiceProvider",
-        "Modules\\ProductDisplay\\Providers\\AllKalaProvider"
+        "Modules\\ProductDisplay\\Providers\\AllKalaProvider",
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNewDataProvider"
     ],
     "files": []
 }
