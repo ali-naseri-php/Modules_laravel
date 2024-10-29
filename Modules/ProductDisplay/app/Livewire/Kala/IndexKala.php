@@ -4,9 +4,9 @@ namespace Modules\ProductDisplay\Livewire\Kala;
 
 use Illuminate\Http\Request;
 use Livewire\Component;
-use Modules\ProductDisplay\Providers\AllKalaOrderByNewDataProvider;
 use Modules\ProductDisplay\Services\Kala\AllCategoryServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaOrderByNewDataServices;
+use Modules\ProductDisplay\Services\Kala\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaServices;
 
 class IndexKala extends Component
@@ -17,9 +17,11 @@ class IndexKala extends Component
     {
         //'قیمت  کم ترین '
         if ($request->q == 2) {
-            dd('قیمت  کم ترین ');
+            $this->order_by_price_least();
         } //'قیمت بیشترین '
         elseif ($request->q == 3) {
+
+
             dd('قیمت بیشترین ');
         } //"بر اساس بازدی "
         elseif ($request->q == 4) {
@@ -29,12 +31,20 @@ class IndexKala extends Component
         }
 
     }
+    public function order_by_price_least()
+    {
+        // بارگذاری تنبل سرویس فقط هنگام نیاز
+        $kala = resolve(AllKalaOrderByPriceLeastServices::class);
+        $this->kalas = $kala->all();
+
+
+    }
 
     public function order_by_new()
     {
         // بارگذاری تنبل سرویس فقط هنگام نیاز
-        $allKalaOrderByNewDataServices = resolve(AllKalaOrderByNewDataServices::class);
-        $this->kalas = (array)$allKalaOrderByNewDataServices->all();
+        $kala = resolve(AllKalaOrderByNewDataServices::class);
+        $this->kalas = $kala->all();
 
     }
 

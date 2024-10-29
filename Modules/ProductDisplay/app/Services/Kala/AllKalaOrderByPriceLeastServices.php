@@ -6,7 +6,7 @@ use Modules\ProductManagement\Models\Category;
 use \Modules\ProductDisplay\Models\Kala;
 
 
-class AllKalaOrderByNewDataServices
+class AllKalaOrderByPriceLeastServices
 {
     protected $page;
     public function __construct($page)
@@ -18,9 +18,9 @@ class AllKalaOrderByNewDataServices
     public function all()
     {
         if ($this->page == 1 ) {
-            $data = Cache::remember('kala', 120, function () {
+            $data = Cache::remember('kala_price_least', 120, function () {
                 //                sleep(5);
-                $data = Kala::orderBy('created_at')->paginate(5);
+                $data = Kala::orderBy('price')->paginate(5);
                 return $data;
             });
 
