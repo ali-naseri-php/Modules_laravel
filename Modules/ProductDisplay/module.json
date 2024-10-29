@@ -8,6 +8,7 @@
         "Modules\\ProductDisplay\\Providers\\ProductDisplayServiceProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastProvider",
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceMostProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNewDataProvider"
     ],
     "files": []
