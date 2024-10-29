@@ -25,7 +25,7 @@ class AllKalaOrderByPriceLeastServices
             });
 
         } else {
-            $data = Kala::orderBy('created_at')->paginate(5);
+            $data = Kala::orderBy('price')->paginate(5);
         }
         return $data->all();
 

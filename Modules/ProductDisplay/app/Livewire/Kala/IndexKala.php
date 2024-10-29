@@ -31,7 +31,7 @@ class IndexKala extends Component
         } else {
             $this->order_by_new();
         }
-        dd($this->kalas);
+
     }
     public function order_by_price_most()
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
