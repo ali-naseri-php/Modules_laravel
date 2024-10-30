@@ -8,6 +8,7 @@ use Modules\ProductDisplay\Services\Kala\AllCategoryServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaOrderByNewDataServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaOrderByPriceMostServices;
+use Modules\ProductDisplay\Services\Kala\AllKalaOrderByVisitServices;
 use Modules\ProductDisplay\Services\Kala\AllKalaServices;
 
 class IndexKala extends Component
@@ -27,11 +28,18 @@ class IndexKala extends Component
 
         } //"بر اساس بازدی "
         elseif ($request->q == 4) {
-            dd("بر اساس بازدی ");
+$this->order_by_visit();
+
         } else {
             $this->order_by_new();
         }
 
+    }
+    public function order_by_visit()
+    {// بارگذاری تنبل سرویس فقط هنگام نیاز
+        $kala = resolve(AllKalaOrderByVisitServices::class);
+        $this->kalas = $kala->all();
+        dd($this->kalas);
     }
     public function order_by_price_most()
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
