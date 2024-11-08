@@ -20,32 +20,30 @@ class IndexKala extends Component
         //'قیمت  کم ترین '
         if ($request->q == 2) {
             $this->order_by_price_least();
-        }
-        //'قیمت بیشترین '
+        } //'قیمت بیشترین '
         elseif ($request->q == 3) {
-
             $this->order_by_price_most();
-
         } //"بر اساس بازدی "
         elseif ($request->q == 4) {
-$this->order_by_visit();
-
+            $this->order_by_visit();
         } else {
             $this->order_by_new();
         }
-
     }
+
     public function order_by_visit()
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
         $kala = resolve(AllKalaOrderByVisitServices::class);
         $this->kalas = $kala->all();
         dd($this->kalas);
     }
+
     public function order_by_price_most()
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
         $kala = resolve(AllKalaOrderByPriceMostServices::class);
         $this->kalas = $kala->all();
     }
+
     public function order_by_price_least()
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
         $kala = resolve(AllKalaOrderByPriceLeastServices::class);

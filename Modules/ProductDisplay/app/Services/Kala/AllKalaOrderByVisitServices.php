@@ -19,6 +19,7 @@ class AllKalaOrderByVisitServices
 
     public function all()
     {
+
         if ($this->page == 1) {
             $data = Cache::remember('kala_visit', 120, function () {
                 //                sleep(5);

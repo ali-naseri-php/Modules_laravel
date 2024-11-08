@@ -11,6 +11,7 @@
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceMostProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNewDataProvider"
-    ],
+        ],
     "files": []
+
 }
