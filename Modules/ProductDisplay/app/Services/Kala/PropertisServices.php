@@ -13,7 +13,7 @@ class PropertisServices
 
     public function all()
     {
-//                $data = Propr::orderBy('parent_category', 'asc')->paginate(5);
+                $data = Properti::orderBy('parent_category', 'asc')->paginate(5);
 //                return $data;
 
 

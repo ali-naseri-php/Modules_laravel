@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\ProductDisplay\Database\Factories\PropertiFactory;
 
-class Properti extends Model
+class Propertie extends Model
 {
     use SoftDeletes;
     use HasFactory;
