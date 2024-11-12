@@ -1,3 +1,4 @@
 <div>
-    <h3>The <code>AllPropertisKala</code> livewire component is loaded from the <code>ProductDisplay</code> module.</h3>
+    <h3>kala index </h3>
 </div>
+

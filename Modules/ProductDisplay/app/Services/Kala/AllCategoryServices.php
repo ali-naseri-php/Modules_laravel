@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\ProductDisplay\Services\Kala;
 
 use Illuminate\Support\Facades\Cache;
@@ -7,18 +8,26 @@ use Modules\ProductManagement\Models\Category;
 
 class AllCategoryServices
 {
-    public function all()
+    public $page;
+    public function __construct($page)
     {
+        $this->page = $page;
+    }
 
 
-            $data = Cache::remember('category', 10, function () {
+    public function all_category()
+    {
+        if ($this->page == 1) {
 
-                $data = Category::inRandomOrder(10)->get();
+            $data = Cache::remember('category', 120, function () {
+                //                sleep(5);
+                $data = Category::orderBy('parent_category', 'asc')->paginate(5);
                 return $data;
             });
 
-
-//        dd($data);
+        } else {
+            $data = Category::orderBy('parent_category', 'asc')->paginate(5);
+        }
         return $data;
 
     }
