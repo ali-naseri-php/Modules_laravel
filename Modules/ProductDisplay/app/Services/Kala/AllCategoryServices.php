@@ -3,12 +3,13 @@
 namespace Modules\ProductDisplay\Services\Kala;
 
 use Illuminate\Support\Facades\Cache;
-use Modules\ProductManagement\Models\Category;
+use Modules\ProductDisplay\Models\Category;
 
 
 class AllCategoryServices
 {
     public $page;
+
     public function __construct($page)
     {
         $this->page = $page;
