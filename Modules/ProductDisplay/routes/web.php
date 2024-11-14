@@ -19,7 +19,7 @@ Route::group([], function () {
 });
 Route::prefix('kala')->group(function () {
     Route::get('', \Modules\ProductDisplay\Livewire\Kala\IndexKala::class);
-    Route::get('/{id}', \Modules\ProductDisplay\Livewire\KalaCategory\AllKalaNoPropertis::class)->name('kala.id.properties.no')->middleware('check.properties');
-    Route::get('/{id}/propertis', \Modules\ProductDisplay\Livewire\KalaCategory\AllKalaWithPropertis::class)->name('kala.id.properties.with');
+    Route::get('/{id_category}', \Modules\ProductDisplay\Livewire\KalaCategory\AllKalaNoPropertis::class)->name('kala.id.properties.no')->middleware('check.properties');
+    Route::get('/{id_category}/propertis', \Modules\ProductDisplay\Livewire\KalaCategory\AllKalaWithPropertis::class)->name('kala.id.properties.with');
 
 });

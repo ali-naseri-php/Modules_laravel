@@ -13,9 +13,10 @@ class CheckPropertiesMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+
         if ($request->has('properties')) {
-            $categoryId = $request->route('id');
-            return redirect()->route("kala.id.properties.with",['id'=>$categoryId]);
+            $categoryId = $request->route('id_category');
+            return redirect()->route("kala.id.properties.with",['id_category'=>$categoryId]);
         }
 
 
