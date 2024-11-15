@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Livewire\Component;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByNewServices;
+use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByPriceMostServices;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByVisitServices;
 
 class AllKalaNoPropertis extends Component
@@ -28,6 +29,25 @@ class AllKalaNoPropertis extends Component
         }
 
     }
+//
+//    public function order_by_price_least()
+//    {
+//        $kala = resolve(AllKalaOrderByPriceMostServices::class);
+//        $this->kalas = $kala->all();
+//        dd($this->kalas);
+//
+//
+//    }
+
+    public function order_by_price_most()
+    {
+        $kala = resolve(AllKalaOrderByPriceMostServices::class);
+        $this->kalas = $kala->all();
+        dd($this->kalas);
+
+
+    }
+
 
     public function order_by_new()
     {
