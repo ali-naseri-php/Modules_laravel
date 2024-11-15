@@ -29,15 +29,15 @@ class AllKalaNoPropertis extends Component
         }
 
     }
-//
-//    public function order_by_price_least()
-//    {
-//        $kala = resolve(AllKalaOrderByPriceMostServices::class);
-//        $this->kalas = $kala->all();
-//        dd($this->kalas);
-//
-//
-//    }
+
+    public function order_by_price_least()
+    {
+        $kala = resolve(AllKalaOrderByPriceLeastServices::class);
+        $this->kalas = $kala->all();
+        dd($this->kalas);
+
+
+    }
 
     public function order_by_price_most()
     {
