@@ -9,6 +9,7 @@
         "Modules\\ProductDisplay\\Providers\\AllKalaProvider",
         "Modules\\ProductDisplay\\Providers\\AllCategoryProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByVisit_noProvider",
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNew_noProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByVisitProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceMostProvider",

@@ -5,6 +5,7 @@ namespace Modules\ProductDisplay\Livewire\KalaCategory;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
+use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByNewServices;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByVisitServices;
 
 class AllKalaNoPropertis extends Component
@@ -22,11 +23,20 @@ class AllKalaNoPropertis extends Component
         elseif ($request->q == 4) {
             $this->order_by_visit();
         } else {
+            //اگر چیزی نبود این خواهد امد   عینی پارامتر در url نبود
             $this->order_by_new();
         }
 
     }
 
+    public function order_by_new()
+    {
+        $kala = resolve(AllKalaOrderByNewServices::class);
+        $this->kalas = $kala->all();
+//        dd('ali naseri');
+        dd($this->kalas);
+
+    }
     public function order_by_visit()
     {
         $kala = resolve(AllKalaOrderByVisitServices::class);
