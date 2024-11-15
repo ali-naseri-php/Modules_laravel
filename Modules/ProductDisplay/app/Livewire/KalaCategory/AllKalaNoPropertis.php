@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Livewire\Component;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByNewServices;
+use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByPriceMostServices;
 use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByVisitServices;
 
