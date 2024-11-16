@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ProductDisplay\Livewire\KalaCategory;
+namespace Modules\ProductDisplay\Livewire\KalaWithPropertis;
 
 use Livewire\Component;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ProductDisplay\Livewire\KalaCategory;
+namespace Modules\ProductDisplay\Livewire\KalaNoPropertis;
 
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -12,7 +12,8 @@ use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByVisitServices;
 
 class AllKalaNoPropertis extends Component
 {
-    public  $kalas;
+    public $kalas;
+
     public function mount(AllKalaNoPropertisRequest $request)
     {
         //'قیمت  کم ترین '
@@ -28,7 +29,6 @@ class AllKalaNoPropertis extends Component
             //اگر چیزی نبود این خواهد امد   عینی پارامتر در url نبود
             $this->order_by_new();
         }
-
     }
 
     public function order_by_price_least()
@@ -36,8 +36,6 @@ class AllKalaNoPropertis extends Component
         $kala = resolve(AllKalaOrderByPriceLeastServices::class);
         $this->kalas = $kala->all();
         dd($this->kalas);
-
-
     }
 
     public function order_by_price_most()
@@ -54,10 +52,11 @@ class AllKalaNoPropertis extends Component
     {
         $kala = resolve(AllKalaOrderByNewServices::class);
         $this->kalas = $kala->all();
-//        dd('ali naseri');
+        //        dd('ali naseri');
         dd($this->kalas);
 
     }
+
     public function order_by_visit()
     {
         $kala = resolve(AllKalaOrderByVisitServices::class);
