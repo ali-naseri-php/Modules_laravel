@@ -8,14 +8,17 @@
         "Modules\\ProductDisplay\\Providers\\ProductDisplayServiceProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaProvider",
         "Modules\\ProductDisplay\\Providers\\AllCategoryProvider",
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastNoPropertisProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByVisit_noProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNew_noProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceMostNoPropertisProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByVisitProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastProvider",
         "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceMostProvider",
-        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNewDataProvider"
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByNewDataProvider",
+        "Modules\\ProductDisplay\\Providers\\AllKalaOrderByPriceLeastWithPropertisProvider"
         ],
+
     "files": []
 
 }

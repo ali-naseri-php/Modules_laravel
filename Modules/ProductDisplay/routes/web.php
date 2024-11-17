@@ -15,12 +15,16 @@ use Modules\ProductDisplay\Http\Controllers\ProductDisplayController;
 |
 */
 
+
 Route::group([], function () {
     Route::resource('productdisplay', ProductDisplayController::class)->names('productdisplay');
 });
 Route::prefix('kala')->group(function () {
     Route::get('', \Modules\ProductDisplay\Livewire\Kala\IndexKala::class);
-    Route::get('/{id_category}',  Modules\ProductDisplay\Livewire\KalaNoPropertis\AllKalaNoPropertis::class)->name('kala.id.properties.no')->middleware('check.properties');
-    Route::get('/{id_category}/propertis', \Modules\ProductDisplay\Livewire\KalaWithPropertis\AllKalaWithPropertis::class)->name('kala.id.properties.with');
+    Route::get('/{id_category}', Modules\ProductDisplay\Livewire\KalaNoPropertis\AllKalaNoPropertis::class)->name('kala.id.properties.no');
+
+
+    Route::get('/{id_category}/propertis', \Modules\ProductDisplay\Livewire\KalaWithPropertis\AllKalaWithPropertis::class)->name('kala.id.properties.with')->middleware('check.properties');
+
 
 });

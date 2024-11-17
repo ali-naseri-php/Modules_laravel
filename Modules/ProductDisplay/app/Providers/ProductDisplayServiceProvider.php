@@ -5,8 +5,8 @@ namespace Modules\ProductDisplay\Providers;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Modules\ProductDisplay\Http\Kernel;
 use Modules\ProductDisplay\Http\Middleware\CheckPropertiesMiddleware;
+
 
 class ProductDisplayServiceProvider extends ServiceProvider
 {
@@ -31,9 +31,10 @@ class ProductDisplayServiceProvider extends ServiceProvider
      * Register the service provider.
      */
     public function register(): void
-    {  $router = $this->app->make(Router::class);
+    {
+        $router=$this->app->make(Router::class);
+        $router->aliasMiddleware('check.properties',CheckPropertiesMiddleware::class);
 
-        $router->aliasMiddleware('check.properties', CheckPropertiesMiddleware::class);
 
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
