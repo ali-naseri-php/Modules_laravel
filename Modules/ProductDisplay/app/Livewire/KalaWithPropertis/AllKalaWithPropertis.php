@@ -7,6 +7,7 @@ use Modules\ProductDisplay\Http\Middleware\CheckPropertiesMiddleware;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Http\Requests\AllKalaWithPropertisRequest;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceLeastServices;
+use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceMostServices;
 
 class AllKalaWithPropertis extends Component
 {
@@ -16,7 +17,7 @@ class AllKalaWithPropertis extends Component
 
     public function mount(AllKalaWithPropertisRequest $request)
     {
-        $this->nams=$request->properties;
+        $this->nams = $request->properties;
         //'قیمت  کم ترین '
         if ($request->q == 2) {
             $this->order_by_price_least();
@@ -41,8 +42,8 @@ class AllKalaWithPropertis extends Component
 
     public function order_by_price_most()
     {
-        //        $kala = resolve(AllKalaOrderByPriceMostServices::class);
-        $this->kalas = $kala->all();
+        $kala = resolve(AllKalaOrderByPriceMostServices::class);
+        $this->kalas = $kala->all($this->nams);
         dd($this->kalas);
 
 

@@ -8,7 +8,7 @@ use Modules\ProductManagement\Models\Category;
 use \Modules\ProductDisplay\Models\Kala;
 
 
-class AllKalaOrderByPriceLeastServices
+class AllKalaOrderByPriceMostServices
 {
     protected $page;
     public $id_category;
@@ -42,12 +42,10 @@ class AllKalaOrderByPriceLeastServices
                     ->join('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
                     ->whereIn('properties_kalas.name', $this->nams) // استفاده از whereIn به جای where برای مقادیر مختلف
-                    ->groupBy('kalas.id', 'kalas.name','kalas.price')
+                    ->groupBy('kalas.id', 'kalas.name','price')
                     ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
-                    ->orderBy('kalas.price', 'asc')
-//                    ->ddRaWSql();
+                    ->orderBy('kalas.price', 'DESC')
                     ->paginate(5);
-
 
                 return $data;
             });
