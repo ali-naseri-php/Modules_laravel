@@ -6,6 +6,7 @@ use Livewire\Component;
 use Modules\ProductDisplay\Http\Middleware\CheckPropertiesMiddleware;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Http\Requests\AllKalaWithPropertisRequest;
+use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByNewServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceMostServices;
 
@@ -52,8 +53,8 @@ class AllKalaWithPropertis extends Component
 
     public function order_by_new()
     {
-        //        $kala = resolve(AllKalaOrderByNewServices::class);
-        $this->kalas = $kala->all();
+        $kala = resolve(AllKalaOrderByNewServices::class);
+        $this->kalas = $kala->all($this->nams);
         //        dd('ali naseri');
         dd($this->kalas);
 
