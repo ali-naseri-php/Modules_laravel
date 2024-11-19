@@ -9,6 +9,7 @@ use Modules\ProductDisplay\Http\Requests\AllKalaWithPropertisRequest;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByNewServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceMostServices;
+use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByVisitServices;
 
 class AllKalaWithPropertis extends Component
 {
@@ -62,8 +63,8 @@ class AllKalaWithPropertis extends Component
 
     public function order_by_visit()
     {
-        //        $kala = resolve(AllKalaOrderByVisitServices::class);
-        $this->kalas = $kala->all();
+                $kala = resolve(AllKalaOrderByVisitServices::class);
+        $this->kalas = $kala->all($this->nams);
         dd($this->kalas);
 
     }
