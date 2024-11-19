@@ -4,5 +4,6 @@
     "Product": true,
     "Management": true,
     "ProductManagement": true,
-    "ProductDisplay": true
+    "ProductDisplay": true,
+    "Article": true
 }
