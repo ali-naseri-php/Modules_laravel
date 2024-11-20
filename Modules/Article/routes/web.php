@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Article\Http\Controllers\ArticleController;
 
@@ -16,4 +17,14 @@ use Modules\Article\Http\Controllers\ArticleController;
 
 Route::group([], function () {
     Route::resource('article', ArticleController::class)->names('article');
+});
+
+Route::prefix('articles')->group(function () {
+    Route::get('/new',\Modules\Article\Livewire\CreateArticle::class);
+    Route::post('/',function (Request $request){
+
+//        dd($request->image);
+
+
+    })->name('articles.store');
 });
