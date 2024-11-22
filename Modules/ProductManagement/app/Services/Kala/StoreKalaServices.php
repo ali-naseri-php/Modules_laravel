@@ -33,17 +33,17 @@ class StoreKalaServices
         $kala->explanation = $data['explanation'];
         $kala->price = $data['price'];
         $status = $kala->save();
-        if (is_array($data['propertis'])){
+        if (is_array($data['propertis'])) {
 
-        foreach ($data['propertis'] as $key => $value) {
-            $kalapro=new propertieKala();
-            $kalapro->name=$value;
-            $kalapro->id_properit=$key;
-            $kalapro->id_kala=$kala->id;
-            $kalapro->save();
+            foreach ($data['propertis'] as $key => $value) {
+                $kalapro = new propertieKala();
+                $kalapro->name = $value;
+                $kalapro->id_properit = $key;
+                $kalapro->id_kala = $kala->id;
+                $kalapro->save();
 
+            }
         }
-    }
         return $status;
 
 

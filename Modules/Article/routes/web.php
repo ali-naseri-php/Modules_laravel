@@ -17,14 +17,12 @@ use Modules\Article\Http\Controllers\ArticleController;
 
 Route::group([], function () {
     Route::resource('article', ArticleController::class)->names('article');
-});
+})->middleware('test');
 
 Route::prefix('articles')->group(function () {
     Route::get('/new',\Modules\Article\Livewire\CreateArticle::class);
-    Route::post('/',function (Request $request){
-
-//        dd($request->image);
-
-
-    })->name('articles.store');
+    Route::get('/',function (){
+        dd('ok');
+    })->name('articles.index');
+    Route::post('/',\Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store');
 });

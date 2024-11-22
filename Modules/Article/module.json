@@ -5,7 +5,8 @@
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\Article\\Providers\\ArticleServiceProvider"
+        "Modules\\Article\\Providers\\ArticleServiceProvider",
+        "Modules\\Article\\Providers\\StoreArticleProvider"
     ],
     "files": []
 }
