@@ -20,9 +20,11 @@ Route::group([], function () {
 })->middleware('test');
 
 Route::prefix('articles')->group(function () {
-    Route::get('/new',\Modules\Article\Livewire\CreateArticle::class);
-    Route::get('/',function (){
+    Route::get('/new', \Modules\Article\Livewire\CreateArticle::class);
+    Route::get('/', function () {
         dd('ok');
     })->name('articles.index');
-    Route::post('/',\Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store');
+    Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store');
+    Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite');
+    Route::put('/{id}', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.update');
 });
