@@ -8,9 +8,11 @@
         <div class="text-red-500 text-sm">{{ $message }}</div>
         @enderror
 
-        <form action="{{ route('articles.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('articles.update') }}" method="post" enctype="multipart/form-data">
             <div>
+                <input type="hidden"name="id"value="{{$article->id}}">
                 @csrf
+                @method('put')
                 <input type="text" placeholder="title" name="title">
                 <br>
                 <textarea placeholder="body" name="body">

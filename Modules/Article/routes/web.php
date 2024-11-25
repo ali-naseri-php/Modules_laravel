@@ -26,5 +26,5 @@ Route::prefix('articles')->group(function () {
     })->name('articles.index');
     Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store');
     Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite');
-    Route::put('/{id}', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.update');
+    Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update');
 });
