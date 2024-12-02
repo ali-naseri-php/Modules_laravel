@@ -17,3 +17,6 @@ use Modules\Account\Http\Controllers\AccountController;
 Route::group([], function () {
     Route::resource('account', AccountController::class)->names('account');
 });
+
+Route::get('/login', \Modules\Account\Livewire\FormLogin::class)->name('login.form');
+Route::post('/', \Modules\Account\Http\Controllers\LoginController::class)->name('login');
