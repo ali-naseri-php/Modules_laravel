@@ -19,4 +19,7 @@ Route::group([], function () {
 });
 
 Route::get('/login', \Modules\Account\Livewire\FormLogin::class)->name('login.form');
-Route::post('/', \Modules\Account\Http\Controllers\LoginController::class)->name('login');
+Route::post('/login', \Modules\Account\Http\Controllers\LoginController::class)->name('login');
+
+Route::get('/register', \Modules\Account\Livewire\FormRegister::class)->name('register.form');
+Route::post('/register', \Modules\Account\Http\Controllers\RegisterController::class)->name('register');
