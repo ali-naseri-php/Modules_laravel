@@ -23,3 +23,6 @@ Route::post('/login', \Modules\Account\Http\Controllers\LoginController::class)-
 
 Route::get('/register', \Modules\Account\Livewire\FormRegister::class)->name('register.form');
 Route::post('/register', \Modules\Account\Http\Controllers\RegisterController::class)->name('register');
+
+
+Route::post('/logout', \Modules\Account\Http\Controllers\LogoutController::class)->name('logout');
