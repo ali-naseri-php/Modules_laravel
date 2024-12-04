@@ -28,6 +28,9 @@ Route::post('/register', \Modules\Account\Http\Controllers\RegisterController::c
 Route::get('/role/new', \Modules\Account\Livewire\FormRole::class)->name('role.form');
 Route::post('/role', \Modules\Account\Http\Controllers\StoreRoleController::class)->name('role');
 
+Route::get('/permission/new', \Modules\Account\Livewire\FormPermission::class)->name('permission.form');
+Route::post('/permission', \Modules\Account\Http\Controllers\StorePermissionController::class)->name('permission');
+
 Route::post('/logout', \Modules\Account\Http\Controllers\LogoutController::class)->name('logout');
 
 
