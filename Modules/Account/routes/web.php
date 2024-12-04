@@ -25,4 +25,11 @@ Route::get('/register', \Modules\Account\Livewire\FormRegister::class)->name('re
 Route::post('/register', \Modules\Account\Http\Controllers\RegisterController::class)->name('register');
 
 
+Route::get('/role/new', \Modules\Account\Livewire\FormRole::class)->name('role.form');
+Route::post('/role', \Modules\Account\Http\Controllers\StoreRoleController::class)->name('role');
+
 Route::post('/logout', \Modules\Account\Http\Controllers\LogoutController::class)->name('logout');
+
+
+
+
