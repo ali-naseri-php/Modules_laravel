@@ -2,7 +2,7 @@
     <form action="{{ route('role-permission') }}" method="POST">
         @csrf
         <div>
-            <label for="selectRole">انتخاب کنید دسترسی را :</label>
+            <label for="selectRole">انتخاب کنید نقش را :</label>
             <select id="selectRole" name="role">
                 <option value="" disabled selected>لطفاً یک گزینه را انتخاب کنید</option>
                 @foreach($roles as $role)
@@ -14,7 +14,7 @@
             @enderror
         </div>
         <div>
-            <label for="selectPermission">انتخاب کنید نقش را :</label>
+            <label for="selectPermission">انتخاب کنید دسترسی را :</label>
             <select id="selectPermission" name="permission">
                 <option value="" disabled selected>لطفاً یک گزینه را انتخاب کنید</option>
                 @foreach($permissions as $permission)

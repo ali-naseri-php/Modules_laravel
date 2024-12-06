@@ -34,6 +34,9 @@ Route::post('/permission', \Modules\Account\Http\Controllers\StorePermissionCont
 Route::get('/role-permission/new', \Modules\Account\Livewire\FormRolePermission::class)->name('role-permission.form');
 Route::post('/role-permission', \Modules\Account\Http\Controllers\StoreRolePermissionController::class)->name('role-permission');
 
+Route::get('/role-user/new', \Modules\Account\Livewire\FormRolePermission::class)->name('role-user.form');
+Route::post('/role-user', \Modules\Account\Http\Controllers\StoreRolePermissionController::class)->name('role-user');
+
 Route::post('/logout', \Modules\Account\Http\Controllers\LogoutController::class)->name('logout');
 
 
