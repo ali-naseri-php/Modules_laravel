@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Account\Database\Factories\RoleUserFactory;
 
-class role_user extends Model
+class RoleUser extends Model
 {
     use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
+
+    public $timestamps = false;
     protected $table='role_user';
 
     protected static function newFactory(): RoleUserFactory
