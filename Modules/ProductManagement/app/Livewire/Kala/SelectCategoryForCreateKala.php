@@ -12,6 +12,7 @@ class SelectCategoryForCreateKala extends Component
 
     public function render(AllCategoryServices $allCategoryServices)
     {
+
         return view('productmanagement::livewire.kala.select-category-for-create-kala', ['categorys' => $allCategoryServices->all()])->layout('productmanagement::layouts.app');
     }
 

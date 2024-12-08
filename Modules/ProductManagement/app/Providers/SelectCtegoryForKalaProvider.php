@@ -3,6 +3,7 @@
 namespace Modules\ProductManagement\Providers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Modules\ProductManagement\Services\Kala\SelectCtegoryForKalaServices;
 
@@ -13,7 +14,7 @@ class SelectCtegoryForKalaProvider extends ServiceProvider
      */
     public function register(): void
     {
-
+        Log::info('این یک پیام select  است');
         $this->app->singleton(SelectCtegoryForKalaServices::class, function ($app) {
             $request = $app->make(Request::class);  // دریافت شیء Request
             $id = $request->route('id');
@@ -24,6 +25,7 @@ class SelectCtegoryForKalaProvider extends ServiceProvider
             return new SelectCtegoryForKalaServices($id);
         });
 
+        Log::info('این یک پیام select end است');
     }
 
     /**

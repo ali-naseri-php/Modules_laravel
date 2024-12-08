@@ -3,6 +3,7 @@
 namespace Modules\ProductManagement\Providers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Modules\ProductManagement\Services\Kala\PropertiForKalaServices;
 
@@ -13,6 +14,7 @@ class PropertiForAddKalaProvider extends ServiceProvider
      */
     public function register(): void
     {
+        Log::info('این یک پیام properti است');
 
         $this->app->singleton(PropertiForKalaServices::class, function ($app) {
             $request = $app->make(Request::class);  // دریافت شیء Request
@@ -24,6 +26,7 @@ class PropertiForAddKalaProvider extends ServiceProvider
             return new PropertiForKalaServices($id_category);
         });
 
+        Log::info('این یک پیام properti end  است');
     }
 
     /**

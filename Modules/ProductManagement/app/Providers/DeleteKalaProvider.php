@@ -3,6 +3,7 @@
 namespace Modules\ProductManagement\Providers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Modules\ProductManagement\Services\Kala\DeleteKalaServices;
 use Modules\ProductManagement\Services\Kala\DeletePropertiKalaServices;
@@ -15,7 +16,7 @@ class DeleteKalaProvider extends ServiceProvider
      */
     public function register(): void
     {
-
+        Log::info('این یک پیام del است');
         $this->app->bind(DeleteKalaServices::class, function ($app) {
             $id = request()->route('id'); // اینجا مقدار id را از درخواست دریافت کنید
 //            dd($id);
@@ -23,6 +24,7 @@ class DeleteKalaProvider extends ServiceProvider
             return new DeleteKalaServices($id);
         });
 
+        Log::info('این یک پیامend del است');
     }
 
     /**
