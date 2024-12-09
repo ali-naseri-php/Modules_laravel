@@ -13,6 +13,7 @@ class SelectCtegoryForKalaServices
     protected $id;
     public function __construct($id_kala)
     {
+
         $this->id=$id_kala;
     }
 
@@ -25,6 +26,8 @@ class SelectCtegoryForKalaServices
         where('kalas.id', '=', $this->id)->select('categorys.*')
             ->first();
         //dd('telegram and linkedin ali_naseri_php');
+//        dd($this->id);
+//        dd($category);
         return $category;
 
     }

@@ -22,7 +22,7 @@ class EditeKala extends Component
 
 
     }
-    public function render(PropertiForKalaServices $propertiForKalaServices ,AllCategoryServices $allCategoryServices)
+    public function render(PropertiForKalaServices $propertiForKalaServices ,)
     {
 //        dd($this->category_kala);
         return view('productmanagement::livewire.kala.edite-kala',[

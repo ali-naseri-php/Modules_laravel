@@ -13,10 +13,7 @@ class Kala extends Model
 
 
     protected $table='kalas';
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
+
 
     protected static function newFactory(): KalaFactory
     {
