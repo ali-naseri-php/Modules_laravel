@@ -22,4 +22,10 @@ class KalaPolicy
 
         return $accessServices->auth('kala-update');
     }
+    public function delete()
+    {
+        $accessServices = app(AccessServices::class);
+
+        return $accessServices->auth('kala-delete');
+    }
 }
