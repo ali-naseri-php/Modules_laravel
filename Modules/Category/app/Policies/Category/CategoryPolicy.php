@@ -3,6 +3,7 @@
 namespace Modules\Category\Policies\Category;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 use Modules\Category\Services\AccessServices;
 
 class CategoryPolicy
@@ -17,6 +18,15 @@ class CategoryPolicy
         $accessServices = app(AccessServices::class);
 
         return $accessServices->auth('category-store');
+
+    }
+
+    public function update()
+    {
+
+        $accessServices = app(AccessServices::class);
+
+        return $accessServices->auth('category-update');
 
     }
 }
