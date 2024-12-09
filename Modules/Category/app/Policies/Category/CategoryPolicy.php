@@ -29,4 +29,10 @@ class CategoryPolicy
         return $accessServices->auth('category-update');
 
     }
+
+    public function delete()
+    {
+        $accessServices = app(AccessServices::class);
+        return $accessServices->auth('category-delete');
+    }
 }

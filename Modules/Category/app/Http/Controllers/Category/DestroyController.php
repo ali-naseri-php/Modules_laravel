@@ -4,10 +4,19 @@ namespace Modules\Category\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Modules\Category\Models\Category;
 use Modules\Category\Services\Category\DestroyCategoryServices;
 
 class DestroyController extends Controller
 {
+    public function __construct()
+    {
+        if (!Gate::allows('delete', Category::class)) {
+            return abort(403);
+        }
+    }
+
     /**
      * Handle the incoming request.
      */
