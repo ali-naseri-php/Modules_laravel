@@ -3,6 +3,7 @@
 namespace Modules\Category\Policies\Category;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Modules\Category\Services\AccessServices;
 
 class CategoryPolicy
 {
@@ -11,8 +12,11 @@ class CategoryPolicy
     /**
      * Create a new policy instance.
      */
-    public function __construct()
+    public function store()
     {
-        //
+        $accessServices = app(AccessServices::class);
+
+        return $accessServices->auth('category-store');
+
     }
 }

@@ -4,11 +4,19 @@ namespace Modules\Category\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Modules\Category\Http\Requests\Category\StoreCategoryRequest;
+use Modules\Category\Models\Category;
 use Modules\Category\Services\Category\StoreCategoryServices;
 
 class StoreCategoryController extends Controller
 {
+    public function __construct()
+    {
+        if (!Gate::allows('store', Category::class)) {
+            return abort(403);
+        }
+    }
 
     public function __invoke(StoreCategoryRequest $request, StoreCategoryServices $categoryServices)
     {
