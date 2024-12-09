@@ -19,11 +19,11 @@ use Modules\ProductManagement\Http\Controllers\ProductManagementController;
 //});
 Route::prefix('kalas')->group(function () {
 //    Route::get('',\Modules\ProductManagement\Livewire\Kala\AllKala::class)->name('kala.index');
-    Route::get('/new', \Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class)->name('kala.new');
+    Route::get('/new', \Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class)->name('kala.new')->middleware('auth');
 //    Route::get('/new', \Modules\ProductManagement\Livewire\Kala\SelectCategoryForCreateKala::class);
-    Route::get('/crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate');
+    Route::get('/crate',\Modules\ProductManagement\Livewire\Kala\CreateKala::class)->name('kala.crate')->middleware('auth');
     Route::post('',\Modules\ProductManagement\Http\Controllers\Kala\StoreKalaController::class)->name('kala.store');
     Route::put('/{id}',\Modules\ProductManagement\Http\Controllers\Kala\UpdateKalaController::class)->name('kala.update');
     Route::delete('/{id}',\Modules\ProductManagement\Http\Controllers\Kala\DeleteKalaController::class)->name('kala.delete');
-    Route::get('/edite/{id}',\Modules\ProductManagement\Livewire\Kala\EditeKala::class)->name('kala.edite');
+    Route::get('/edite/{id}',\Modules\ProductManagement\Livewire\Kala\EditeKala::class)->name('kala.edite')->middleware('auth');
 });

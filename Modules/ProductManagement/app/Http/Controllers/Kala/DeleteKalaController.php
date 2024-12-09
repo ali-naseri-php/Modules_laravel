@@ -15,6 +15,7 @@ use Modules\ProductManagement\Services\Kala\StoreKalaServices;
 
 class DeleteKalaController extends Controller
 {
+
     public function __construct()
     {
         if (!Gate::allows('delete', Kala::class)) {
