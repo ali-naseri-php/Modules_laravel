@@ -6,11 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Modules\Article\Http\Requests\StoreArticleRequest;
+use Modules\Article\Models\Article;
 use Modules\Article\Services\StoreArticleServices;
 
 class StoreArticleController extends Controller
 {
+    public function __construct()
+    {
+
+        if (!Gate::allows('store', Article::class)) {
+            return abort(403);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      */
