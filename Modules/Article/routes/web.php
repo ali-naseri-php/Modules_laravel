@@ -20,12 +20,12 @@ Route::group([], function () {
 })->middleware('test');
 
 Route::prefix('articles')->group(function () {
-    Route::get('/new', \Modules\Article\Livewire\CreateArticle::class);
+    Route::get('/new', \Modules\Article\Livewire\CreateArticle::class)->middleware('auth');;
     Route::get('/', function () {
         dd('ok');
     })->name('articles.index');
-    Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store');
-    Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite');
-    Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update');
-    Route::delete('/', \Modules\Article\Http\Controllers\DeleteArticleController::class)->name('articles.delete');
+    Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store')->middleware('auth');;
+    Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite')->middleware('auth');;
+    Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update')->middleware('auth');;
+    Route::delete('/', \Modules\Article\Http\Controllers\DeleteArticleController::class)->name('articles.delete')->middleware('auth');;
 });
