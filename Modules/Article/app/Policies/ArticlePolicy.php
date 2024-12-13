@@ -23,5 +23,12 @@ class ArticlePolicy
         return $accessServices->auth('article-delete');
 
     }
+    public function update()
+    {
+        $accessServices = app(AccessServices::class);
+
+        return $accessServices->auth('article-update');
+
+    }
 
 }
