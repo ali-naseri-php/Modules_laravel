@@ -24,8 +24,8 @@ Route::prefix('articles')->group(function () {
     Route::get('/', function () {
         dd('ok');
     })->name('articles.index');
-    Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store')->middleware('auth');;
-    Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite')->middleware('auth');;
-    Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update')->middleware('auth');;
-    Route::delete('/', \Modules\Article\Http\Controllers\DeleteArticleController::class)->name('articles.delete')->middleware('auth');;
+    Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store')->middleware('auth');
+    Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite')->middleware('auth');
+    Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update')->middleware('auth');
+    Route::delete('/', \Modules\Article\Http\Controllers\DeleteArticleController::class)->name('articles.delete')->middleware('auth');
 });
