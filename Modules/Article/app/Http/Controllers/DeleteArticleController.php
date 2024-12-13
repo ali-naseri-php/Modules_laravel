@@ -3,14 +3,23 @@
 namespace Modules\Article\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Modules\Article\Http\Requests\DeleteArticleRequest;
 use Modules\Article\Http\Requests\UpdateArticleRequest;
+use Modules\Article\Models\Article;
 use Modules\Article\Services\DeleteArticleServices;
 use Modules\Article\Services\StoreArticleServices;
 use Modules\Article\Services\UpdateArticleServices;
 
 class DeleteArticleController extends Controller
 {
+    public function __construct()
+    {
+
+        if (!Gate::allows('delete', Article::class)) {
+            return abort(403);
+        }
+    }
     /**
      * Store a newly created resource in storage.
      */

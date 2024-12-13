@@ -16,5 +16,12 @@ class ArticlePolicy
         return $accessServices->auth('article-store');
 
     }
+    public function delete()
+    {
+        $accessServices = app(AccessServices::class);
+
+        return $accessServices->auth('article-delete');
+
+    }
 
 }
