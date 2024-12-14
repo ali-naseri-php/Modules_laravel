@@ -6,5 +6,6 @@
     "ProductManagement": true,
     "ProductDisplay": true,
     "Article": true,
-    "Account": true
+    "Account": true,
+    "Search": true
 }
