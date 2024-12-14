@@ -12,6 +12,7 @@ use Modules\Account\Http\Requests\LoginRequest;
 use Modules\Account\Http\Requests\RegisterRequest;
 use Modules\Account\Http\Requests\StorePernissionRequest;
 use Modules\Account\Http\Requests\StoreRoleRequest;
+use Modules\Account\Models\Permission;
 use Modules\Account\Models\Role;
 use Modules\Account\Models\User;
 use Modules\Account\Services\StorePermissionServics;
@@ -25,7 +26,7 @@ class StorePermissionController extends Controller
 {
     public function __construct()
     {
-        if (!Gate::allows('store', Role::class)) {
+        if (!Gate::allows('store', Permission::class)) {
             return abort(403);
         }
     }
