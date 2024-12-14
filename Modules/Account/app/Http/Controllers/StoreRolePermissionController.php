@@ -3,26 +3,22 @@
 namespace Modules\Account\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Modules\Account\Http\Requests\LoginRequest;
-use Modules\Account\Http\Requests\RegisterRequest;
-use Modules\Account\Http\Requests\StorePernissionRequest;
+use Illuminate\Support\Facades\Gate;
 use Modules\Account\Http\Requests\StoreRolePermissionRequest;
-use Modules\Account\Http\Requests\StoreRoleRequest;
-use Modules\Account\Models\User;
-use Modules\Account\Services\StorePermissionServics;
+use Modules\Account\Models\RolePermission;
 use Modules\Account\Services\StoreRolePermissionServics;
-use Modules\Account\Services\StoreRoleServics;
-use Modules\Category\Services\Propertie\StorePropertieServices;
-use phpDocumentor\Reflection\DocBlock\Description;
 
 //use Illuminate\Support\Facades\Hash;
 
 class StoreRolePermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        if (!Gate::allows('store', RolePermission::class)) {
+            return abort(403);
+        }
+    }
     /**
      * Display a listing of the resource.
      */
