@@ -14,7 +14,7 @@ class KalaPolicy
     {
         $accessServices = app(AccessServices::class);
 
-        return $accessServices->auth('kala-create');
+        return $accessServices->auth('kala-store');
     }
     public function update()
     {
