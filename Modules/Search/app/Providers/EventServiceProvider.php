@@ -1,8 +1,9 @@
 <?php
-
 namespace Modules\Search\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Modules\ProductManagement\Events\ProductCreated;  // وارد کردن ایونت
+use Modules\Search\Listeners\AddProductToSearch;    // وارد کردن لیسنر
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,11 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<string, array<int, string>>
      */
-    protected $listen = [];
+    protected $listen = [
+        ProductCreated::class => [
+            AddProductToSearch::class,  // ثبت لیسنر برای ایونت ProductCreated
+        ],
+    ];
 
     /**
      * Indicates if events should be discovered.
@@ -27,6 +32,6 @@ class EventServiceProvider extends ServiceProvider
      */
     protected function configureEmailVerification(): void
     {
-
+        // این متد برای پیکربندی بررسی ایمیل است که در اینجا نیازی به تنظیم ندارد.
     }
 }
