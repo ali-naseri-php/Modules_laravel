@@ -2,7 +2,9 @@
 namespace Modules\Search\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Modules\Category\Events\CategoryCreated;
 use Modules\ProductManagement\Events\ProductCreated;  // وارد کردن ایونت
+use Modules\Search\Listeners\AddCategoryToSearch;
 use Modules\Search\Listeners\AddProductToSearch;    // وارد کردن لیسنر
 
 class EventServiceProvider extends ServiceProvider
@@ -16,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         ProductCreated::class => [
             AddProductToSearch::class,  // ثبت لیسنر برای ایونت ProductCreated
         ],
+        CategoryCreated::class=>[
+            AddCategoryToSearch::class, // ��بت لیستنر برای ایونت CategoryCreated
+        ]
     ];
 
     /**

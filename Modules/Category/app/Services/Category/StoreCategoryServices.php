@@ -3,6 +3,7 @@
 namespace Modules\Category\Services\Category;
 
 
+use Modules\Category\Events\CategoryCreated;
 use Modules\Category\Models\Category;
 
 class StoreCategoryServices
@@ -19,7 +20,7 @@ class StoreCategoryServices
         $category->name = $data['name'];
         $category->images ='images/'.$file_name;
         $st = $category->save();
-
+        event(new CategoryCreated($category));
         return $st;
 
 
