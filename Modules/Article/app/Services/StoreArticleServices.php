@@ -1,6 +1,7 @@
 <?php
 namespace  Modules\Article\Services;
 
+use Modules\Article\Events\ArticleCreated;
 use Modules\Article\Models\Article;
 
 class StoreArticleServices
@@ -15,6 +16,7 @@ class StoreArticleServices
     }
     public function store()
     {
+//        dd($this->data);
         $newArticle=new Article;
         $file_name = $this->data['title'] . '-' . time() . '.' . $this->data['image']->extension();
         $this->data['image']->move(public_path('images'), $file_name);
@@ -22,6 +24,7 @@ class StoreArticleServices
         $newArticle->title=$this->data['title'];
         $newArticle->body=$this->data['body'];
         $status=$newArticle->save();
+        event(new ArticleCreated($newArticle));
         return $status;
 
 
