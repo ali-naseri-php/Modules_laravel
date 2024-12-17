@@ -17,3 +17,11 @@ use Modules\Search\Http\Controllers\SearchController;
 Route::group([], function () {
     Route::resource('search', SearchController::class)->names('search');
 });
+
+
+Route::get('search',\Modules\Search\Livewire\FormSearch::class);
+Route::post('search',);
+
+
+
+
