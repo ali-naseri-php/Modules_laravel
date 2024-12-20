@@ -9,5 +9,6 @@ class FormSearch extends Component
     public function render()
     {
         return view('search::livewire.form-search')->layout('category::layouts.app');
+
     }
 }

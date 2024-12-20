@@ -20,7 +20,7 @@ Route::group([], function () {
 
 
 Route::get('search',\Modules\Search\Livewire\FormSearch::class);
-Route::post('search',);
+Route::post('search',SearchController::class)->name('search');
 
 
 
