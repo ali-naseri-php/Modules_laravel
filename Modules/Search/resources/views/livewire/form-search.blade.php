@@ -1,7 +1,7 @@
 <div>
     <form action="{{route('search')}}" method="post">
         @csrf
-        <select name="order_by" id="">
+        <select name="value" id="">
             <option value="all">all</option>
             <option value="category">category</option>
             <option value="kala">kala</option>
