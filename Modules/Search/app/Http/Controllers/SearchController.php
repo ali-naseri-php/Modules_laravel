@@ -21,6 +21,10 @@ class SearchController extends Controller
             $searchService=app(SearchWithWhereServices::class);
             $searchService->search($request->name,'category');
         }
+        elseif ($request->value ==='article'){
+            $searchService=app(SearchWithWhereServices::class);
+            $searchService->search($request->name,'article');
+        }
     }
 
 }
