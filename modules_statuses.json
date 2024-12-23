@@ -7,5 +7,6 @@
     "ProductDisplay": true,
     "Article": true,
     "Account": true,
-    "Search": true
+    "Search": true,
+    "HomepageModule": true
 }

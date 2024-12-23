@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/homepagemodule",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\HomepageModule\\": "app/",
+            "Modules\\HomepageModule\\Database\\Factories\\": "database/factories/",
+            "Modules\\HomepageModule\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\HomepageModule\\Tests\\": "tests/"
+        }
+    }
+}
