@@ -8,6 +8,6 @@ class FormRegister extends Component
 {
     public function render()
     {
-        return view('account::livewire.form-register')->layout('account::layouts.app');
+        return view('account::livewire.form-register')->layout('homepagemodule::layouts.app');
     }
 }

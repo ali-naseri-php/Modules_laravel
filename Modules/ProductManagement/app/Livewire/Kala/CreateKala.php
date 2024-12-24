@@ -19,6 +19,6 @@ class CreateKala extends Component
     public function render(PropertiForKalaServices $addKalaServices)
     {
 
-        return view('productmanagement::livewire.kala.create-kala',['properti'=>$addKalaServices->all()])->layout('productmanagement::layouts.app');
+        return view('productmanagement::livewire.kala.create-kala',['properti'=>$addKalaServices->all()])->layout('homepagemodule::layouts.app');
     }
 }

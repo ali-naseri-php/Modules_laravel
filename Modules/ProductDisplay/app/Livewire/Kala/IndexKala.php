@@ -63,6 +63,6 @@ class IndexKala extends Component
         return view('productdisplay::livewire.kala.index-kala', [
             'kala' => $this->kalas,
             'categorys' => $allCategoryServices->all_category(),
-        ])->layout('productdisplay::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 }

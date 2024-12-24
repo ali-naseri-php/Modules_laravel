@@ -8,6 +8,6 @@ class FormLogin extends Component
 {
     public function render()
     {
-        return view('account::livewire.form-login')->layout('account::layouts.app');
+        return view('account::livewire.form-login')->layout('homepagemodule::layouts.app');
     }
 }

@@ -20,7 +20,7 @@ class CreateShowCategory extends Component
     {
         return view('category::livewire.category.create-show-category', [
             'categorys' => $category->all_category(),
-        ])->layout('category::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 
     public function submit()

@@ -11,6 +11,6 @@ class CreatePropertie extends Component
     public $id_category;
     public function render(AllCategoryServics $allCategoryServics)
     {
-        return view('category::livewire.propertie.create-propertie', array('categorys' => $allCategoryServics->all_category()))->layout('category::layouts.app');
+        return view('category::livewire.propertie.create-propertie', array('categorys' => $allCategoryServics->all_category()))->layout('homepagemodule::layouts.app');
     }
 }

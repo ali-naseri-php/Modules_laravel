@@ -14,6 +14,6 @@ class FormRolePermission extends Component
         return view('account::livewire.form-role-permission',[
             'roles' => $allRoleServices->all(),
             'permissions' => $allPermissionServices->all()
-            ])->layout('account::layouts.app');
+            ])->layout('homepagemodule::layouts.app');
     }
 }

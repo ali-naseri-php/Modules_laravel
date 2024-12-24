@@ -22,6 +22,6 @@ class EditePropertie extends Component
         return view('category::livewire.propertie.edite-propertie',[
             'categorys'=>$allCategoryServics->all_category(),
             'data'=>$propertieServices->show($this->id)
-        ])->layout('category::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 }

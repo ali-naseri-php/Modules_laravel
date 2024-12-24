@@ -17,6 +17,6 @@ class AllCategory extends Component
 
     public function render(AllCategoryServics $allServices)
     {
-        return view('category::livewire.category.all-category',['category'=>$allServices->all_category()])->layout('category::layouts.app');
+        return view('category::livewire.category.all-category',['category'=>$allServices->all_category()])->layout('homepagemodule::layouts.app');
     }
 }

@@ -68,6 +68,6 @@ class AllKalaNoPropertis extends Component
     public function render()
     {
 
-        return view('productdisplay::livewire.kala-category.all-propertis-kala')->layout('productdisplay::layouts.app');
+        return view('productdisplay::livewire.kala-category.all-propertis-kala')->layout('homepagemodule::layouts.app');
     }
 }

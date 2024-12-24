@@ -21,6 +21,6 @@ class EditeArticle extends Component
     public function render(Request $request)
     {
         $this->validateId($request->id);
-        return view('article::livewire.edite-article')->layout('article::layouts.app');
+        return view('article::livewire.edite-article')->layout('homepagemodule::layouts.app');
     }
 }

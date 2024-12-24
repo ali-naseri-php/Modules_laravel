@@ -29,6 +29,6 @@ class EditeKala extends Component
             'category'=>$this->category_kala,
             'kala'=>Kala::find($this->id),
             'properti'=>$propertiForKalaServices->all($this->category_kala->id)
-        ])->layout('productmanagement::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 }

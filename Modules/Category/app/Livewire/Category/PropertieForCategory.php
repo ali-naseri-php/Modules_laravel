@@ -11,6 +11,6 @@ class PropertieForCategory extends Component
 
     public function render(PropertieForCategoryServics $propertieForCategory,Request $request)
     {
-        return view('category::livewire.category.propertie-for-category',['PropertieForCategory'=>$propertieForCategory->all_properties($request->page)])->layout('category::layouts.app');
+        return view('category::livewire.category.propertie-for-category',['PropertieForCategory'=>$propertieForCategory->all_properties($request->page)])->layout('homepagemodule::layouts.app');
     }
 }

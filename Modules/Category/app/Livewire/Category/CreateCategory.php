@@ -24,6 +24,6 @@ class CreateCategory extends Component
 
     public function render()
     {
-        return view('category::livewire.category.create-category')->layout('category::layouts.app');
+        return view('category::livewire.category.create-category')->layout('homepagemodule::layouts.app');
     }
 }

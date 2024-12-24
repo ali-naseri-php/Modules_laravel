@@ -13,6 +13,6 @@ class FormRoleUser extends Component
         return view('account::livewire.form-role-user',[
             'roles' => $allRoleServices->all(),
             'users' => $allUserServices->all()
-        ])->layout('account::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 }

@@ -8,6 +8,6 @@ class FormPermission extends Component
 {
     public function render()
     {
-        return view('account::livewire.form-permission')->layout('account::layouts.app');
+        return view('account::livewire.form-permission')->layout('homepagemodule::layouts.app');
     }
 }

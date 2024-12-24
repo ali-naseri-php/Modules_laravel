@@ -13,6 +13,6 @@ class CreateArticle extends Component
     public function render()
     {
 
-        return view('article::livewire.create-article')->layout('article::layouts.app');
+        return view('article::livewire.create-article')->layout('homepagemodule::layouts.app');
     }
 }

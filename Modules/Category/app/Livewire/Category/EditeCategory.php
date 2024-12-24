@@ -30,6 +30,6 @@ class EditeCategory extends Component
             'categorys' => $allCategoryServics->all_category(),
             'date' => $showCategoryServics->show($this->id),
             'page'=>$request->page
-        ])->layout('category::layouts.app');
+        ])->layout('homepagemodule::layouts.app');
     }
 }
