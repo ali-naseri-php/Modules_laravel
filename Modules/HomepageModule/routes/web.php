@@ -17,3 +17,4 @@ use Modules\HomepageModule\Http\Controllers\HomepageModuleController;
 Route::group([], function () {
     Route::resource('homepagemodule', HomepageModuleController::class)->names('homepagemodule');
 });
+Route::get('/', \Modules\HomepageModule\Livewire\HomePage::class);
