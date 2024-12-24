@@ -20,7 +20,7 @@ Route::group([], function () {
     Route::resource('productdisplay', ProductDisplayController::class)->names('productdisplay');
 });
 Route::prefix('kala')->group(function () {
-    Route::get('', \Modules\ProductDisplay\Livewire\Kala\IndexKala::class);
+    Route::get('', \Modules\ProductDisplay\Livewire\Kala\IndexKala::class)->name('kala');
     Route::get('/{id_category}', Modules\ProductDisplay\Livewire\KalaNoPropertis\AllKalaNoPropertis::class)->name('kala.id.properties.no');
 
 
