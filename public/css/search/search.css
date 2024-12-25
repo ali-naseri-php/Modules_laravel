@@ -1,0 +1,42 @@
+.search-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container .btn-primary {
+    background-color: #5161ce;
+    border-color: #5161ce;
+    color: white;
+}
+
+.search-container .btn-primary:hover {
+    background-color: #3c4bb3;
+    border-color: #3c4bb3;
+}
+
+.search-container .dropdown-menu {
+    text-align: right;
+}
+
+.search-container .dropdown-menu li a {
+    color: #5161ce;
+}
+
+.search-container .dropdown-menu li a:hover {
+    background-color: #5161ce;
+    color: white;
+}
+
+.search-container .form-control {
+    border: 1px solid #5161ce;
+}
+
+.search-container .form-control:focus {
+    box-shadow: 0 0 5px rgba(81, 97, 206, 0.5);
+    border-color: #5161ce;
+}
