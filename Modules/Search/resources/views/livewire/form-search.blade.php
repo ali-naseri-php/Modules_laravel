@@ -3,7 +3,8 @@
 
 @endpush
 <div class="search-container">
-    <form action="{{ route('search') }}" method="get">
+    <form action="{{ route('search') }}" method="post">
+        @csrf
         <div class="input-group input-group-lg">
             <!-- Dropdown Button -->
             <div class="input-group-prepend">
