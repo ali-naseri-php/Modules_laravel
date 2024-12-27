@@ -47,7 +47,7 @@ class AllKalaOrderByPriceMostServices
                 ->orderBy('kalas.price', 'DESC')
                 ->paginate(6);
         }
-        return $data->all();
+        return $data;
 
     }
 

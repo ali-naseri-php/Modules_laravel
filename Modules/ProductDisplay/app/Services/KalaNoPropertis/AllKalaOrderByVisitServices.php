@@ -47,7 +47,7 @@ class AllKalaOrderByVisitServices
                 ->orderBy('visit_kala.number', 'DESC')
                 ->paginate(6);
         }
-        return $data->all();
+        return $data;
 
     }
 

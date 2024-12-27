@@ -20,14 +20,14 @@ class AllKalaOrderByPriceLeastServices
         if ($this->page == 1 ) {
             $data = Cache::remember('kala_price_least', 120, function () {
                 //                sleep(5);
-                $data = Kala::orderBy('price')->paginate(5);
+                $data = Kala::orderBy('price')->paginate(6);
                 return $data;
             });
 
         } else {
-            $data = Kala::orderBy('price')->paginate(5);
+            $data = Kala::orderBy('price')->paginate(6);
         }
-        return $data->all();
+        return $data;
 
     }
 

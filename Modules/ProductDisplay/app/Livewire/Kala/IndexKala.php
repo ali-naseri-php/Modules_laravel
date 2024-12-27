@@ -13,7 +13,7 @@ use Modules\ProductDisplay\Services\Kala\AllKalaServices;
 
 class IndexKala extends Component
 {
-    public $kalas;
+    protected $kalas;
 
     public function mount(Request $request)
     {
@@ -35,7 +35,7 @@ class IndexKala extends Component
     {// بارگذاری تنبل سرویس فقط هنگام نیاز
         $kala = resolve(AllKalaOrderByVisitServices::class);
         $this->kalas = $kala->all();
-        dd($this->kalas);
+//        dd($this->kalas);
     }
 
     public function order_by_price_most()
@@ -61,7 +61,7 @@ class IndexKala extends Component
     public function render(AllKalaServices $allKalaServices, AllCategoryServices $allCategoryServices)
     {
         return view('productdisplay::livewire.kala.index-kala', [
-            'kala' => $this->kalas,
+           'kalas'=>$this->kalas,
             'categorys' => $allCategoryServices->all_category(),
         ])->layout('homepagemodule::layouts.app');
     }

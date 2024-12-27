@@ -45,7 +45,7 @@ class AllKalaOrderByPriceLeastServices
                 ->select('kalas.*')
                 ->paginate(6);
         }
-        return $data->all();
+        return $data;
 
     }
 

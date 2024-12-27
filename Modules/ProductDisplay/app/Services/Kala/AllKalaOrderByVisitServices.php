@@ -25,16 +25,16 @@ class AllKalaOrderByVisitServices
                 //                sleep(5);
                 $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
                     ->orderBy('visit_kala.number', 'DESC')
-                    ->paginate(5);
+                    ->paginate(6);
                 return $data;
             });
 
         } else {
             $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
                 ->orderBy('visit_kala.number', 'DESC')
-                ->paginate(5);
+                ->paginate(6);
         }
-        return $data->all();
+        return $data;
 
     }
 

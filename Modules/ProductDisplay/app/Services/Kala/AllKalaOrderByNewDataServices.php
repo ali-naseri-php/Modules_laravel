@@ -20,14 +20,15 @@ class AllKalaOrderByNewDataServices
         if ($this->page == 1 ) {
             $data = Cache::remember('kala_new_data', 120, function () {
                 //                sleep(5);
-                $data = Kala::orderBy('created_at')->paginate(5);
+                $data = Kala::orderBy('created_at')->paginate(6);
                 return $data;
             });
 
         } else {
-            $data = Kala::orderBy('created_at')->paginate(5);
+            $data = Kala::orderBy('created_at')->paginate(6);
         }
-        return $data->all();
+
+        return $data;
 
     }
 

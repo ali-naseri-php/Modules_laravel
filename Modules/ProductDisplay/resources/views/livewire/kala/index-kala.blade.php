@@ -47,13 +47,15 @@
             </div>
         </div>
 
-
+{{--@dd($kalas)--}}
         <!-- Main Content for Products -->
         <div class="col-lg-9 col-md-8 col-sm-12">
             <h4>کالاها</h4>
             <div class="row" id="product-list">
                 <!-- Product Item -->
-                @foreach($kalas as $product )
+{{--                @dd($kalas)--}}
+                @foreach($kalas->all() as $product )
+{{--                    @dd($product)--}}
                     <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
                         <div class="card">
                             <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;" class="card-img-top" alt="Product Image">
@@ -65,7 +67,40 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav>
+                            <div class="d-flex justify-content-center mt-4">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination pagination-rounded">
+                                        {{-- Previous Page Link --}}
+                                        <li class="page-item {{ $kalas->onFirstPage() ? 'disabled' : '' }}">
+                                            <a class="page-link" href="{{ $kalas->previousPageUrl() }}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
 
+                                        {{-- Pagination Links --}}
+                                        @foreach ($kalas->getUrlRange(1, $kalas->lastPage()) as $page => $url)
+                                            <li class="page-item {{ $kalas->currentPage() == $page ? 'active' : '' }}">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        <li class="page-item {{ $kalas->hasMorePages() ? '' : 'disabled' }}">
+                                            <a class="page-link" href="{{ $kalas->nextPageUrl() }}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </nav>
+                    </div>
+
+                </div>
                 <!-- Additional products can be added here -->
             </div>
         </div>
