@@ -47,31 +47,24 @@
             </div>
         </div>
 
+
         <!-- Main Content for Products -->
         <div class="col-lg-9 col-md-8 col-sm-12">
             <h4>کالاها</h4>
             <div class="row" id="product-list">
                 <!-- Product Item -->
-                <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
-                    <div class="card">
-                        <img src="http://127.0.0.1:8000/images/1733753619.jpg" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <h5 class="card-title">کالای 1</h5>
-                            <p class="card-text">توضیحات کالا</p>
-                            <p class="card-text">قیمت: ۲۵۰۰ تومان</p>
+                @foreach($kalas as $product )
+                    <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
+                        <div class="card">
+                            <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title"> نام :{{$product->name}}</h5>
+                                <a class="card-text">جزئیات </a>
+                                <p class="card-text">قیمت:{{$product->price}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4 product-item" data-color="blue" data-ram="16GB" data-price="4000">
-                    <div class="card">
-                        <img src="http://127.0.0.1:8000/images/1733753619.jpg" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <h5 class="card-title">کالای 2</h5>
-                            <p class="card-text">توضیحات کالا</p>
-                            <p class="card-text">قیمت: ۳۵۰۰ تومان</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <!-- Additional products can be added here -->
             </div>
