@@ -20,12 +20,12 @@ class AllKalaServices
         if ($this->page == 1 ) {
             $data = Cache::remember('kala', 120, function () {
                 //                sleep(5);
-                $data = Kala::paginate(5);
+                $data = Kala::paginate(4);
                 return $data;
             });
 
         } else {
-            $data = Category::orderBy('parent_category', 'asc')->paginate(5);
+            $data = Category::orderBy('parent_category', 'asc')->paginate(4);
         }
         return $data;
 
