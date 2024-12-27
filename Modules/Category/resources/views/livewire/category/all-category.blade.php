@@ -7,18 +7,17 @@
 
     <div class="row mt-3">
         @foreach($category as $item)
-            <div class="col-md-4 mb-3">
-                <div class="card" style="background-color: white; border: 1px solid black;">
-                    <img src="{{ url($item->images) }}" alt="{{ $item->name }}" class="card-img-top" style="height: 150px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                        <h5 class="card-title">{{ $item->name }}</h5>
-                        <div class="mt-2">
-                            <a href="{{'ali' }}" class="bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-500">Edit</a>
-{{--                            <form action="{{ route('category.destroy', $item->id) }}" method="POST" class="inline-block">--}}
-                            <form action="" method="post">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light" style="background-color: white;">
+                    <img src="{{ url($item->images) }}" alt="{{ $item->name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-3">{{ $item->name }}</h5>
+                        <div class="d-flex justify-content-center mt-2">
+                            <a href="{{'ali' }}" class="btn btn-info btn-sm mx-2">Edit</a>
+                            <form action="" method="post" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-600 text-white py-1 px-3 rounded hover:bg-red-500">Delete</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -27,9 +26,35 @@
         @endforeach
     </div>
 
-    <div class="flex justify-center mt-4">
-        <nav class="flex">
-           {{$category->links()}}
+    <div class="d-flex justify-content-center mt-4">
+        <nav>
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-rounded">
+                        {{-- Previous Page Link --}}
+                        <li class="page-item {{ $category->onFirstPage() ? 'disabled' : '' }}">
+                            <a class="page-link" href="{{ $category->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        {{-- Pagination Links --}}
+                        @foreach ($category->getUrlRange(1, $category->lastPage()) as $page => $url)
+                            <li class="page-item {{ $category->currentPage() == $page ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                            </li>
+                        @endforeach
+
+                        {{-- Next Page Link --}}
+                        <li class="page-item {{ $category->hasMorePages() ? '' : 'disabled' }}">
+                            <a class="page-link" href="{{ $category->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
         </nav>
     </div>
 </div>
