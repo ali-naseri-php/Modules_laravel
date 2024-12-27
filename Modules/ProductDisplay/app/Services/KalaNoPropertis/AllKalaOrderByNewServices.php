@@ -22,9 +22,9 @@ class AllKalaOrderByNewServices
 
     public function all()
     {
-
+//dd($this->page .'/' . $this->id_category);
         if ($this->page == 1) {
-            $data = Cache::remember('kalaNoPropertis_new', 120, function () {
+            $data = Cache::remember('kalaNoPropertis_new'.$this->id_category, 120, function () {
 
                 $data = Kala::
                 LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
@@ -32,14 +32,20 @@ class AllKalaOrderByNewServices
                 ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
                     ->orderBy('kalas.created_at')
-                    ->paginate(5);
+                    ->select('kalas.*')
+                    ->paginate(6);
                 return $data;
             });
 
         } else {
-            $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
-                ->orderBy('visit_kala.number', 'DESC')
-                ->paginate(5);
+            $data = Kala::
+            LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
+                ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->where('categorys.id', '=', $this->id_category)
+                ->orderBy('kalas.created_at')
+                ->select('kalas.*')
+                ->paginate(6);
         }
         return $data->all();
 

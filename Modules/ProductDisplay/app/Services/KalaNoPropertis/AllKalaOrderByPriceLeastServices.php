@@ -31,14 +31,19 @@ class AllKalaOrderByPriceLeastServices
                     ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=',$this->id_category)
                     ->orderBy('kalas.price')
-                    ->paginate(5);
+                    ->select('kalas.*')
+                    ->paginate(6);
                 return $data;
             });
 
         } else {
-            $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
-                ->orderBy('visit_kala.number', 'DESC')
-                ->paginate(5);
+            $data = Kala::LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
+                ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->where('categorys.id', '=',$this->id_category)
+                ->orderBy('kalas.price')
+                ->select('kalas.*')
+                ->paginate(6);
         }
         return $data->all();
 

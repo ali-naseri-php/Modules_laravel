@@ -13,10 +13,10 @@ class AllKalaOrderByPriceMostServices
     public $id_category;
 
 
-    public function __construct($page,$id_category)
+    public function __construct($page, $id_category)
     {
         $this->page = $page;
-        $this->id_category=$id_category;
+        $this->id_category = $id_category;
     }
 
 
@@ -28,18 +28,24 @@ class AllKalaOrderByPriceMostServices
 
                 $data = Kala::
                 LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
-                ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
-                ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
-                    ->where('categorys.id', '=',$this->id_category)
-                    ->orderBy('kalas.price','DESC')
-                    ->paginate(5);
+                    ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
+                    ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
+                    ->where('categorys.id', '=', $this->id_category)
+                    ->select('kalas.*')
+                    ->orderBy('kalas.price', 'DESC')
+                    ->paginate(6);
                 return $data;
             });
 
         } else {
-            $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
-                ->orderBy('visit_kala.number', 'DESC')
-                ->paginate(5);
+            $data = Kala::
+            LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
+                ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->where('categorys.id', '=', $this->id_category)
+                ->select('kalas.*')
+                ->orderBy('kalas.price', 'DESC')
+                ->paginate(6);
         }
         return $data->all();
 
