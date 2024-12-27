@@ -12,7 +12,7 @@ use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByVisitServices;
 
 class AllKalaNoPropertis extends Component
 {
-    public $kalas;
+    protected $kalas;
 
     public function mount(AllKalaNoPropertisRequest $request)
     {
@@ -68,6 +68,8 @@ class AllKalaNoPropertis extends Component
     public function render()
     {
 
-        return view('productdisplay::livewire.kala-category.all-propertis-kala')->layout('homepagemodule::layouts.app');
+        return view('productdisplay::livewire.kala-category.all-propertis-kala',[
+            'kalas'=>$this->kalas,
+        ])->layout('homepagemodule::layouts.app');
     }
 }
