@@ -29,7 +29,7 @@
             <li class="nav-item @if(request()->is('/')) active @endif">
                 <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i>اصلی</a>
             </li>
-            <li class="nav-item @if(request()->is('login')) active @endif">
+            <li class="nav-item @if(request()->is('login') or request()->is('register')  ) active @endif">
                 <a class="nav-link" href="{{route('login.form')}}"><i class="fas fa-sign-in-alt"></i>ورود و ثبت نام</a>
             </li>
             <li class="nav-item @if(request()->is('articles')) active @endif">
