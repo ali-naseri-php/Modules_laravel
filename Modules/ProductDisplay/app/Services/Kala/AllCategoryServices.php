@@ -18,20 +18,13 @@ class AllCategoryServices
 
     public function all_category()
     {
-        if ($this->page == 1) {
 
-            $data = Cache::remember('category', 120, function () {
-                //                sleep(5);
-                $data = Category::orderBy('parent_category', 'asc')->paginate(5);
-                return $data;
-            });
+            //                sleep(5);
+            $data = Category::orderBy('parent_category', 'asc')->get();
+            return $data;
 
-        } else {
-            $data = Category::orderBy('parent_category', 'asc')->paginate(5);
+
         }
-        return $data;
-
-    }
 
 
 }

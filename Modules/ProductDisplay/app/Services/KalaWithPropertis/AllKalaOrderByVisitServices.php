@@ -46,18 +46,27 @@ class AllKalaOrderByVisitServices
                     ->groupBy('kalas.id', 'kalas.name', 'price')
                     ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
                     ->orderBy('visit_kala.number','DESC')
-                    ->paginate(5);
+                    ->paginate(6);
 
                 return $data;
             });
 
         } else {
-            $data = Kala::LeftJoin('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
-                ->orderBy('visit_kala.number', 'DESC')
-                ->paginate(5);
+            $data = Kala::select('kalas.id', 'kalas.name', 'kalas.price')
+                ->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                ->join('properties', 'properties_kalas.id_properit', '=', 'properties.id')
+                ->join('categorys', 'properties.id_category', '=', 'categorys.id')
+                ->join('visit_kala', 'kalas.id', '=', 'visit_kala.id_kala')
+                ->where('categorys.id', '=', $this->id_category)
+                ->whereIn('properties_kalas.name', $this->nams) // استفاده از whereIn به جای where برای مقادیر مختلف
+                ->groupBy('kalas.id', 'kalas.name', 'price')
+                ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
+                ->orderBy('visit_kala.number','DESC')
+                ->paginate(6);
+
         }
         //        dd('ali naseri');
-        return $data->all();
+        return $data;
 
     }
 
