@@ -35,14 +35,14 @@ class AllKalaNoPropertis extends Component
     {
         $kala = resolve(AllKalaOrderByPriceLeastServices::class);
         $this->kalas = $kala->all();
-        dd($this->kalas);
+//        dd($this->kalas);
     }
 
     public function order_by_price_most()
     {
         $kala = resolve(AllKalaOrderByPriceMostServices::class);
         $this->kalas = $kala->all();
-        dd($this->kalas);
+//        dd($this->kalas);
 
 
     }
@@ -53,7 +53,7 @@ class AllKalaNoPropertis extends Component
         $kala = resolve(AllKalaOrderByNewServices::class);
         $this->kalas = $kala->all();
         //        dd('ali naseri');
-        dd($this->kalas);
+//        dd($this->kalas);
 
     }
 
@@ -61,7 +61,7 @@ class AllKalaNoPropertis extends Component
     {
         $kala = resolve(AllKalaOrderByVisitServices::class);
         $this->kalas = $kala->all();
-        dd($this->kalas);
+//        dd($this->kalas);
 
     }
 

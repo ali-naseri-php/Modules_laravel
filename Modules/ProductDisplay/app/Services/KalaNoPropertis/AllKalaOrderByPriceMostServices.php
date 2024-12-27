@@ -30,7 +30,7 @@ class AllKalaOrderByPriceMostServices
                 LeftJoin('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
                 ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                 ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
-                    ->where('categorys.id', '=', '5')
+                    ->where('categorys.id', '=',$this->id_category)
                     ->orderBy('kalas.price','DESC')
                     ->paginate(5);
                 return $data;
