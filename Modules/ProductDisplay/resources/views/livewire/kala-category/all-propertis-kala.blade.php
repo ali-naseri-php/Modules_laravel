@@ -55,8 +55,12 @@
                     @endforeach
                     <label><input type="submit" value="ارسال"> </label>
                 </form>
+                <br>
+                <br>
+                <a class="text-danger fs-1 text-decoration-none"href="{{route('kala.id.properties.no',['id_category'=>request('id_category')])}}">حذف فیلتر</a>
 
             </div>
+
         </div>
 
         <!-- Main Content for Products -->
