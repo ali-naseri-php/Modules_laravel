@@ -6,6 +6,8 @@ use Livewire\Component;
 use Modules\ProductDisplay\Http\Middleware\CheckPropertiesMiddleware;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Http\Requests\AllKalaWithPropertisRequest;
+use Modules\ProductDisplay\Models\propertie_kala;
+use Modules\ProductDisplay\Services\Kala\PropertiswithwhereServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByNewServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceLeastServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceMostServices;
@@ -15,10 +17,12 @@ class AllKalaWithPropertis extends Component
 {
     public $kalas;
     protected $nams;
+    protected $id_category;
 
 
     public function mount(AllKalaWithPropertisRequest $request)
     {
+        $this->id_category = $request->id_category;
         $this->nams = $request->properties;
         //'قیمت  کم ترین '
         if ($request->q == 2) {
@@ -63,15 +67,26 @@ class AllKalaWithPropertis extends Component
 
     public function order_by_visit()
     {
-                $kala = resolve(AllKalaOrderByVisitServices::class);
+        $kala = resolve(AllKalaOrderByVisitServices::class);
         $this->kalas = $kala->all($this->nams);
         dd($this->kalas);
 
     }
 
-    public function render()
+    public function render(PropertiswithwhereServices $services)
     {
 
-        return view('productdisplay::livewire.kala-category.all-propertis-kala')->layout('homepagemodule::layouts.app');
+
+        return view('productdisplay::livewire.kala-category.all-propertis-kala', [
+            'propertis' => $services->all($this->id_category),
+
+        ])->layout('homepagemodule::layouts.app');
+    }
+
+    public function selectKalaProperti($id_properti)
+    {
+        $pro = resolve(Properti_kalaServices::class);
+        return(array) $pro->all($id_properti);
+
     }
 }

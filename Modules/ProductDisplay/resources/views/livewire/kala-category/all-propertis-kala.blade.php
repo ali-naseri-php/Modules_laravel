@@ -36,42 +36,25 @@
             <button class="toggle-filter-btn" id="toggleFilterBtn">پنهان کردن فیلترها </button>
             <div class="filter-box" id="filterBox">
                 <h4>فیلترها</h4>
-                <form id="filters-form">
-                    <!-- Color Filter -->
-                    <div class="form-group mb-3">
-                        <h5>رنگ</h5>
-                        <div>
-                            <label><input type="checkbox" name="color" value="red"> قرمز</label><br>
-                            <label><input type="checkbox" name="color" value="blue"> آبی</label><br>
-                            <label><input type="checkbox" name="color" value="black"> مشکی</label>
+                @foreach($propertis as $properti)
+{{--                    @dd($properti)--}}
+                    <form id="filters-form">
+                        <!-- Color Filter -->
+                        <div class="form-group mb-3">
+                            <h5>{{$properti->name}}</h5>
+                            <div>
+{{--                                @dd($this->selectKalaProperti($properti->id) )--}}
+                                @foreach( $this->selectKalaProperti($properti->id) as $kalaProperti)
+{{--@dd($aaa->name)--}}
+                                <label><input type="checkbox" name="properties[]" value="{{$kalaProperti->name}}">{{ $kalaProperti->name}}</label>
+                                @endforeach
+
+                            </div>
+                            <label><input type="submit"  value="ارسال"> </label>
 
                         </div>
-                        <label><input type="submit" name="submit" value="ارسال"> </label>
-
-                    </div>
-                </form>
-                <form id="filters-form">
-                    <!-- RAM Filter -->
-                    <div class="form-group mb-3">
-                        <h5>مقدار رم</h5>
-                        <div>
-                            <label><input type="checkbox" name="ram" value="4GB"> ۴ گیگابایت</label><br>
-                            <label><input type="checkbox" name="ram" value="8GB"> ۸ گیگابایت</label><br>
-                            <label><input type="checkbox" name="ram" value="16GB"> ۱۶ گیگابایت</label>
-                        </div>
-                    </div>
-                </form>
-                <form id="filters-form">
-                    <!-- Price Filter -->
-                    <div class="form-group mb-3">
-                        <h5>قیمت</h5>
-                        <div>
-                            <label><input type="checkbox" name="price" value="under1000"> زیر ۱۰۰۰ تومان</label><br>
-                            <label><input type="checkbox" name="price" value="1000to3000"> ۱۰۰۰ تا ۳۰۰۰ تومان</label><br>
-                            <label><input type="checkbox" name="price" value="above3000"> بالای ۳۰۰۰ تومان</label>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                @endforeach
 
             </div>
         </div>
@@ -81,18 +64,18 @@
             <h4>کالاها</h4>
             <div class="row" id="product-list">
                 <!-- Product Item -->
-               @foreach($kalas as $product )
-                <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
-                    <div class="card">
-                        <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <h5 class="card-title"> نام :{{$product->name}}</h5>
-                            <a class="card-text">جزئیات </a>
-                            <p class="card-text">قیمت:{{$product->price}}</p>
+                @foreach($kalas as $product )
+                    <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
+                        <div class="card">
+                            <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title"> نام :{{$product->name}}</h5>
+                                <a class="card-text">جزئیات </a>
+                                <p class="card-text">قیمت:{{$product->price}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-               @endforeach
+                @endforeach
 
                 <!-- Additional products can be added here -->
             </div>
