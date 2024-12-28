@@ -81,6 +81,38 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="d-flex justify-content-center mt-4">
+                    <nav>
+                        <div class="d-flex justify-content-center mt-4">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination pagination-rounded">
+                                    {{-- Previous Page Link --}}
+                                    <li class="page-item {{ $kalas->onFirstPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $kalas->previousPageUrl() }}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    {{-- Pagination Links --}}
+                                    @foreach ($kalas->getUrlRange(1, $kalas->lastPage()) as $page => $url)
+                                        <li class="page-item {{ $kalas->currentPage() == $page ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                        </li>
+                                    @endforeach
+
+                                    {{-- Next Page Link --}}
+                                    <li class="page-item {{ $kalas->hasMorePages() ? '' : 'disabled' }}">
+                                        <a class="page-link" href="{{ $kalas->nextPageUrl() }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </nav>
+                </div>
+
 
                 <!-- Additional products can be added here -->
             </div>
