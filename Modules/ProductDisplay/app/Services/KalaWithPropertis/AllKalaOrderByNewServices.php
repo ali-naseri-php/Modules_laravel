@@ -36,8 +36,8 @@ class AllKalaOrderByNewServices
                 //                }
                 //                $fullJooin = DB::table('kalas')->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala');
                 //               dd( );
-                $data = Kala::select('kalas.id', 'kalas.name','kalas.price')
-                    ->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                $data = Kala::
+                    join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
                     ->join('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                     ->join('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
@@ -45,14 +45,17 @@ class AllKalaOrderByNewServices
                     ->groupBy('kalas.id', 'kalas.name','price')
                     ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
                     ->orderBy('kalas.created_at')
+                    ->distinct()
+                    ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                    ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                     ->paginate(6);
 
                 return $data;
             });
 
         } else {
-            $data =Kala::select('kalas.id', 'kalas.name','kalas.price')
-                ->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+            $data =Kala::
+                join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
                 ->join('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                 ->join('categorys', 'properties.id_category', '=', 'categorys.id')
                 ->where('categorys.id', '=', $this->id_category)
@@ -60,6 +63,9 @@ class AllKalaOrderByNewServices
                 ->groupBy('kalas.id', 'kalas.name','price')
                 ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
                 ->orderBy('kalas.created_at')
+                ->distinct()
+                ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                 ->paginate(6);
         }
         //        dd('ali naseri');

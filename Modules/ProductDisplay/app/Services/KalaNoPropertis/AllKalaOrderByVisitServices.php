@@ -31,8 +31,10 @@ class AllKalaOrderByVisitServices
                 ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                 ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
-                    ->select('kalas.*')
                     ->orderBy('visit_kala.number', 'DESC')
+                    ->distinct()
+                    ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                    ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                     ->paginate(6);
                 return $data;
             });
@@ -43,7 +45,9 @@ class AllKalaOrderByVisitServices
                 ->LeftJoin('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                 ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                 ->where('categorys.id', '=', $this->id_category)
-                ->select('kalas.*')
+                ->distinct()
+                ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                 ->orderBy('visit_kala.number', 'DESC')
                 ->paginate(6);
         }

@@ -20,6 +20,7 @@ class Properti_kalaServices
         where('id_properit','=',$id_propertie)
             ->join('kalas','properties_kalas.id_kala','=','kalas.id')
             ->select('properties_kalas.*')
+            ->orderBy('kalas.id')
                 ->get();
         return $data;
 

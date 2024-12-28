@@ -36,13 +36,15 @@ class AllKalaOrderByPriceLeastServices
                 //                }
                 //                $fullJooin = DB::table('kalas')->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala');
                 //               dd( );
-                $data = Kala::select('kalas.id', 'kalas.name','kalas.price')
-                    ->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                $data = Kala::
+                join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
                     ->join('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                     ->join('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
+                    ->distinct()
+                    ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                    ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                     ->whereIn('properties_kalas.name', $this->nams) // استفاده از whereIn به جای where برای مقادیر مختلف
-                    ->groupBy('kalas.id', 'kalas.name','kalas.price')
                     ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
                     ->orderBy('kalas.price', 'asc')
 //                    ->ddRaWSql();
@@ -53,13 +55,15 @@ class AllKalaOrderByPriceLeastServices
             });
 
         } else {
-                $data = Kala::select('kalas.id', 'kalas.name','kalas.price')
-                    ->join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
+                $data = Kala::
+                    join('properties_kalas', 'kalas.id', '=', 'properties_kalas.id_kala')
                     ->join('properties', 'properties_kalas.id_properit', '=', 'properties.id')
                     ->join('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=', $this->id_category)
                     ->whereIn('properties_kalas.name', $this->nams) // استفاده از whereIn به جای where برای مقادیر مختلف
-                    ->groupBy('kalas.id', 'kalas.name','kalas.price')
+                    ->distinct()
+                    ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                    ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                     ->havingRaw('COUNT(DISTINCT properties_kalas.id) = ?', [count($this->nams)]) // استفاده از پارامتر به جای `count($this->nams)`
                     ->orderBy('kalas.price', 'asc')
                     //                    ->ddRaWSql();

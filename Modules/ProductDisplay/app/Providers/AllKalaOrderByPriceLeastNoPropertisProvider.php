@@ -4,7 +4,7 @@ namespace Modules\ProductDisplay\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use Modules\ProductDisplay\Services\Kala\AllKalaOrderByPriceLeastServices;
+use Modules\ProductDisplay\Services\KalaNoPropertis\AllKalaOrderByPriceLeastServices;
 
 class AllKalaOrderByPriceLeastNoPropertisProvider extends ServiceProvider
 {

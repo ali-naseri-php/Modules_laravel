@@ -31,7 +31,9 @@ class AllKalaOrderByPriceLeastServices
                     ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                     ->where('categorys.id', '=',$this->id_category)
                     ->orderBy('kalas.price')
-                    ->select('kalas.*')
+                    ->distinct()
+                    ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                    ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                     ->paginate(6);
                 return $data;
             });
@@ -42,7 +44,9 @@ class AllKalaOrderByPriceLeastServices
                 ->LeftJoin('categorys', 'properties.id_category', '=', 'categorys.id')
                 ->where('categorys.id', '=',$this->id_category)
                 ->orderBy('kalas.price')
-                ->select('kalas.*')
+                ->distinct()
+                ->groupBy( 'kalas.id','kalas.name','kalas.image1', 'kalas.price')
+                ->select('kalas.name','kalas.price','kalas.id','kalas.image1')
                 ->paginate(6);
         }
         return $data;
