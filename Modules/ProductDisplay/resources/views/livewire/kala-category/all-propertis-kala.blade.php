@@ -3,8 +3,8 @@
         /* استایل برای باکس دور فیلترها */
         .filter-box {
             border: 1px solid #ddd; /* خط دور */
-            padding: 20px;           /* فاصله داخلی */
-            border-radius: 8px;      /* گوشه‌های گرد */
+            padding: 20px; /* فاصله داخلی */
+            border-radius: 8px; /* گوشه‌های گرد */
             background-color: #f9f9f9; /* رنگ پس‌زمینه */
         }
 
@@ -33,28 +33,28 @@
     <div class="row">
         <!-- Sidebar for Filters -->
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <button class="toggle-filter-btn" id="toggleFilterBtn">پنهان کردن فیلترها </button>
+            <button class="toggle-filter-btn" id="toggleFilterBtn">پنهان کردن فیلترها</button>
             <div class="filter-box" id="filterBox">
                 <h4>فیلترها</h4>
-                @foreach($propertis as $properti)
-{{--                    @dd($properti)--}}
-                    <form id="filters-form">
+                <form id="filters-form"action="{{route('kala.id.properties.with',['id_category'=>request('id_category')])}}"method="get">
+                    @foreach($propertis as $properti)
+                        {{--                    @dd($properti)--}}
                         <!-- Color Filter -->
                         <div class="form-group mb-3">
                             <h5>{{$properti->name}}</h5>
                             <div>
-{{--                                @dd($this->selectKalaProperti($properti->id) )--}}
+                                {{--                                @dd($this->selectKalaProperti($properti->id) )--}}
                                 @foreach( $this->selectKalaProperti($properti->id) as $kalaProperti)
-{{--@dd($aaa->name)--}}
-                                <label><input type="checkbox" name="properties[]" value="{{$kalaProperti->name}}">{{ $kalaProperti->name}}</label>
+{{--                                    @dd($kalaProperti)--}}
+                                    <label><input type="checkbox" name="properties[]" value="{{$kalaProperti->name}}">{{ $kalaProperti->name}}</label>
                                 @endforeach
 
                             </div>
-                            <label><input type="submit"  value="ارسال"> </label>
 
                         </div>
-                    </form>
-                @endforeach
+                    @endforeach
+                    <label><input type="submit" value="ارسال"> </label>
+                </form>
 
             </div>
         </div>
@@ -67,7 +67,8 @@
                 @foreach($kalas as $product )
                     <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
                         <div class="card">
-                            <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;" class="card-img-top" alt="Product Image">
+                            <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;"
+                                 class="card-img-top" alt="Product Image">
                             <div class="card-body">
                                 <h5 class="card-title"> نام :{{$product->name}}</h5>
                                 <a class="card-text">جزئیات </a>
@@ -86,7 +87,7 @@
 @push('scripts')
     <script>
         // Handle toggling the filter box visibility
-        document.getElementById('toggleFilterBtn').addEventListener('click', function() {
+        document.getElementById('toggleFilterBtn').addEventListener('click', function () {
             var filterBox = document.getElementById('filterBox');
             var button = document.getElementById('toggleFilterBtn');
             filterBox.classList.toggle('collapsed');

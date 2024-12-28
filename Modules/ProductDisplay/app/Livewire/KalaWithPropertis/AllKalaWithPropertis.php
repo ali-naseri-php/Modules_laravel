@@ -6,7 +6,8 @@ use Livewire\Component;
 use Modules\ProductDisplay\Http\Middleware\CheckPropertiesMiddleware;
 use Modules\ProductDisplay\Http\Requests\AllKalaNoPropertisRequest;
 use Modules\ProductDisplay\Http\Requests\AllKalaWithPropertisRequest;
-use Modules\ProductDisplay\Models\propertie_kala;
+
+use Modules\ProductDisplay\Services\Kala\Properti_kalaServices;
 use Modules\ProductDisplay\Services\Kala\PropertiswithwhereServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByNewServices;
 use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByPriceLeastServices;
@@ -15,13 +16,14 @@ use Modules\ProductDisplay\Services\KalaWithPropertis\AllKalaOrderByVisitService
 
 class AllKalaWithPropertis extends Component
 {
-    public $kalas;
+    protected $kalas;
     protected $nams;
     protected $id_category;
 
 
     public function mount(AllKalaWithPropertisRequest $request)
     {
+//        dd($request->all());
         $this->id_category = $request->id_category;
         $this->nams = $request->properties;
         //'قیمت  کم ترین '
@@ -43,14 +45,14 @@ class AllKalaWithPropertis extends Component
     {
         $kala = resolve(AllKalaOrderByPriceLeastServices::class);
         $this->kalas = $kala->all($this->nams);
-        dd($this->kalas);
+
     }
 
     public function order_by_price_most()
     {
         $kala = resolve(AllKalaOrderByPriceMostServices::class);
         $this->kalas = $kala->all($this->nams);
-        dd($this->kalas);
+//        dd($this->kalas);
 
 
     }
@@ -61,7 +63,7 @@ class AllKalaWithPropertis extends Component
         $kala = resolve(AllKalaOrderByNewServices::class);
         $this->kalas = $kala->all($this->nams);
         //        dd('ali naseri');
-        dd($this->kalas);
+//        dd($this->kalas);
 
     }
 
@@ -69,7 +71,7 @@ class AllKalaWithPropertis extends Component
     {
         $kala = resolve(AllKalaOrderByVisitServices::class);
         $this->kalas = $kala->all($this->nams);
-        dd($this->kalas);
+//        dd($this->kalas);
 
     }
 
@@ -79,14 +81,14 @@ class AllKalaWithPropertis extends Component
 
         return view('productdisplay::livewire.kala-category.all-propertis-kala', [
             'propertis' => $services->all($this->id_category),
-
+'kalas'=>$this->kalas
         ])->layout('homepagemodule::layouts.app');
     }
 
     public function selectKalaProperti($id_properti)
     {
         $pro = resolve(Properti_kalaServices::class);
-        return(array) $pro->all($id_properti);
+        return $pro->all($id_properti);
 
     }
 }
