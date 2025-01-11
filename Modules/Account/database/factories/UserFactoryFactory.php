@@ -3,12 +3,14 @@
 namespace Modules\Account\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Modules\Account\Models\User;
+
 class UserFactoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      */
-    protected $model = \Modules\Account\Entities\User::class;
+    protected $model = User::class;
 
     /**
      * Define the model's default state.

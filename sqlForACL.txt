@@ -1,0 +1,12 @@
+
+INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'account-store', NULL, NULL),
+(2, 'article-store', NULL, NULL),
+(3, 'article-delete', NULL, NULL),
+(4, 'article-update', NULL, NULL),
+(5, 'category-store', NULL, NULL),
+(6, 'category-update', NULL, NULL),
+(7, 'category-delete', NULL, NULL),
+(8, 'kala-store', NULL, NULL),
+(9, 'kala-update', NULL, NULL),
+(10, 'kala-delete', NULL, NULL);

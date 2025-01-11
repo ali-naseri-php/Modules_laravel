@@ -3,14 +3,13 @@
 namespace Modules\Account\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Account\Models\User;
 
-class UserSeeder extends Seeder
+class AccountSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        User::factory()->count(50)->create();
+        // مثال: تولید کاربران فیک
+        User::factory()->count(10)->create();
     }
 }
