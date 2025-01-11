@@ -11,6 +11,7 @@ class CategoryFactoryFactory extends Factory
     public function definition()
     {
         return [
+            'images' => 'default.jpg', // عکس ثابت
             'name' => $this->faker->word,
             'parent_category' => null, // پیش‌فرض والد ندارد
         ];
