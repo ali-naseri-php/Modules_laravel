@@ -21,9 +21,7 @@ Route::group([], function () {
 
 Route::prefix('articles')->group(function () {
     Route::get('/new', \Modules\Article\Livewire\CreateArticle::class)->middleware('auth');;
-    Route::get('/', function () {
-        dd('ok');
-    })->name('articles.index');
+    Route::get('/',  \Modules\Article\Livewire\ArticleShow::class )->name('articles.index');
     Route::post('/', \Modules\Article\Http\Controllers\StoreArticleController::class)->name('articles.store')->middleware('auth');
     Route::get('/edite/{id}', \Modules\Article\Livewire\EditeArticle::class)->name('articles.edite')->middleware('auth');
     Route::put('/', \Modules\Article\Http\Controllers\UpdateArticleController::class)->name('articles.update')->middleware('auth');

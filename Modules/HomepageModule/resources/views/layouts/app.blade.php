@@ -71,7 +71,7 @@
             <li class="nav-item @if(request()->is('articles')) active @endif">
                 <a class="nav-link" href="{{route('articles.index')}}"><i class="fas fa-newspaper"></i> مفاله ها</a>
             </li>
-            <li class="nav-item @if(request()->is('kala')) active @endif">
+            <li class="nav-item @if(request()->is('kala')or request()->is('kala/*') ) active @endif">
                 <a class="nav-link" href="{{route('kala')}}"><i class="fas fa-shopping-cart"></i> کالا ها </a>
             </li>
             <li class="nav-item @if(request()->is('category')) active @endif">

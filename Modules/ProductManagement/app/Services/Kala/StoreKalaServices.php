@@ -25,10 +25,10 @@ class StoreKalaServices
         //            $kala->image.$i ='images/'.$file_name;
         //        }
         $file_name = $data['name'] . '1' . '-' . time() . '.' . $data['image1']->extension();
-        $data['image1']->move(public_path('image1'), $file_name);
+        $data['image1']->move(public_path('images'), $file_name);
         $kala->image1 = 'images/' . $file_name;
         $file_name = $data['name'] . '2' . '-' . time() . '.' . $data['image2']->extension();
-        $data['image2']->move(public_path('image2'), $file_name);
+        $data['image2']->move(public_path('images'), $file_name);
         $kala->image2 = 'images/' . $file_name;
         $kala->name = $data['name'];
         $kala->explanation = $data['explanation'];
