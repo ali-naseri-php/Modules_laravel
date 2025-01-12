@@ -24,7 +24,7 @@ Route::prefix('category')->group(function () {
     Route::get('/new', \Modules\Category\Livewire\Category\CreateShowCategory::class)->name('category.new');
     Route::get('/create/{id}', \Modules\Category\Livewire\Category\CreateCategory::class)->name('category.create');
     Route::get('/propertie/{category}', \Modules\Category\Livewire\Category\PropertieForCategory::class)->middleware();
-    Route::get('/{id}/edite', \Modules\Category\Livewire\Category\EditeCategory::class)->middleware()->name('category.edite');
+    Route::get('/{id}/edite', \Modules\Category\Livewire\Category\EditeCategory::class)->name('category.edite');
     Route::post('/', \Modules\Category\Http\Controllers\Category\StoreCategoryController::class)->name('category.store');
     Route::put('/', \Modules\Category\Http\Controllers\Category\UpdateCategoryController::class)->name('category.update');
     Route::delete('/{id}', \Modules\Category\Http\Controllers\Category\UpdateCategoryController::class)->name('category.delete');
