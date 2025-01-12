@@ -18,7 +18,7 @@ class EditeKala extends Component
     {
         $this->id=$id;
          $this->category_kala=$kalaServices->selects();
-
+//dd($this->category_kala);
 
 
     }

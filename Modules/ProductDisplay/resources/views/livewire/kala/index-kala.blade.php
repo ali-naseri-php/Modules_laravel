@@ -68,7 +68,7 @@
                 <!-- Product Item -->
                 {{--                @dd($kalas)--}}
                 @foreach($kalas->all() as $product )
-                    {{--                    @dd($product)--}}
+{{--                                        @dd($product->id)--}}
                     <div class="col-md-4 mb-4 product-item" data-color="red" data-ram="8GB" data-price="3000">
                         <div class="card">
                             <img src="{{asset($product->image1)}}" style="max-height: 200px; object-fit: cover;"
@@ -83,11 +83,14 @@
                                 <td>
                                     @can('update', \Modules\ProductManagement\Models\Kala::class)
 {{--                                @dd('ali')--}}
-                                        <button class="btn btn-primary btn-sm">ویرایش</button>
+                                        <a class="btn btn-primary btn-sm"  href="{{route('kala.edite',['id'=>$product->id])}}">ویرایش</a>
 
                                     @endcan
                                         @can('delete', \Modules\ProductManagement\Models\Kala::class)
-                                        <button class="btn btn-danger btn-sm">حذف</button>
+                                            <form action="{{route('kala.delete',['id'=>$product->id])}}" method="post">
+                                                <button class="btn btn-danger btn-sm" type="submit">حذف </button>
+                                            </form>
+
                                     @endcan
                                 </td>
                             @endif
