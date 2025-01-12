@@ -1,66 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+english 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Project Status Report and Future Plans
+Current Project Status:
+Project Structure:
 
-## About Laravel
+The project is designed with a modular structure following standard practices.
+Each module's code is well-organized and placed in its proper location.
+Multi-language Support:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The project is currently single-language and utilizes Laravel Livewire for implementation.
+Data Management:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Data validation has been implemented using standard and acceptable practices.
+Table relationships are properly managed, and access levels are defined in each module to avoid errors.
+Queries are optimized, and a separate table for the search module has been created to handle searches across categories, products, and articles without causing heavy database joins.
+User Interface and Pagination:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Despite limited frontend expertise, efforts have been made to design a simple and user-friendly interface.
+Pagination is precisely implemented, reducing server load and utilizing caching for performance improvement.
+Security:
 
-## Learning Laravel
+User access is managed using ACL, ensuring restricted access to resources based on roles.
+CSRF Tokens are utilized to protect forms against CSRF attacks.
+Sensitive data, such as user passwords, is encrypted to ensure security, even in case of database breaches.
+Optimization and Caching:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Caching and event listeners are used to reduce dependencies and improve performance.
+Middleware and service providers have been implemented to manage modules effectively and remove direct dependencies.
+Error Management and Logging:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Logs are regularly reviewed, and any issues are promptly resolved.
+Future Plans:
+API Development:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+RESTful APIs will be developed to enable integration with other services.
+Testing:
 
-## Laravel Sponsors
+Starting in March, unit tests and integration tests will be implemented to ensure code quality and reliability.
+Multi-language Support:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The project will be expanded to support multiple languages, increasing its user base.
+GoLang Development:
 
-### Premium Partners
+After learning GoLang, a chat system will be developed for the website, featuring multi-language support for enhanced user experience.
+Conclusion:
+The project has progressed with a focus on software development standards, optimization, security, and efficient data management. With the outlined future plans, the project is expected to evolve into a scalable and user-friendly system.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+فارسی ::
+گزارش وضعیت پروژه و برنامه‌ریزی آینده
+وضعیت فعلی پروژه:
+ساختار پروژه:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ساختار پروژه به‌صورت ماژولار و استاندارد طراحی شده است.
+کدهای هر بخش در جایگاه مناسب خود قرار دارند و نظم در ساختار فایل‌ها رعایت شده است.
+چندزبانه بودن:
+
+پروژه فعلاً تک‌زبانه است و از Laravel Livewire برای پیاده‌سازی استفاده شده است.
+مدیریت داده‌ها:
+
+ولیدیشن داده‌ها به‌صورت استاندارد و قابل‌قبول پیاده‌سازی شده است.
+روابط بین جداول به درستی مدیریت شده و سطوح دسترسی در هر ماژول تعریف شده است تا از بروز خطا جلوگیری شود.
+کوئری‌ها بهینه‌سازی شده‌اند و برای مدیریت بهتر جستجو، جدول جداگانه‌ای برای ماژول جستجو ایجاد شده است که فشار بر دیتابیس را کاهش می‌دهد.
+رابط کاربری و پیجینیشن:
+
+با وجود تخصص محدود در فرانت‌اند، تلاش شده تا رابط کاربری ساده و کاربردی طراحی شود.
+پیجینیشن به‌صورت دقیق و بهینه پیاده‌سازی شده است. این قابلیت علاوه بر کاهش فشار بر سرور، از کش برای بهبود سرعت استفاده می‌کند.
+امنیت:
+
+سطح دسترسی کاربران با استفاده از ACL مدیریت شده است.
+از CSRF Token برای امنیت فرم‌ها و جلوگیری از حملات استفاده شده است.
+داده‌های حساس مانند رمز عبور کاربران رمزنگاری شده است تا حتی در صورت دسترسی غیرمجاز به دیتابیس، امنیت حفظ شود.
+بهینه‌سازی و کش:
+
+از کش و Event Listener برای کاهش وابستگی‌ها و بهبود عملکرد استفاده شده است.
+از میدلور (Middleware) و سرویس پروایدر (Service Provider) برای حذف وابستگی‌ها و مدیریت بهتر ماژول‌ها بهره گرفته شده است.
+مدیریت خطا و لاگ:
+
+لاگ‌های پروژه به‌صورت منظم بررسی می‌شوند و خطاهای احتمالی به‌سرعت برطرف می‌شوند.
+برنامه‌ریزی آینده:
+نوشتن API:
+
+برنامه‌ریزی شده تا در آینده APIهای RESTful برای پروژه نوشته شود تا امکان ارتباط با سرویس‌های دیگر فراهم شود.
+تست:
+
+از اسفند ماه، تست‌های واحد (Unit Testing) و یکپارچگی (Integration Testing) برای بهبود کیفیت کدها شروع خواهند شد.
+چندزبانگی:
+
+پروژه در آینده به چند زبان توسعه داده خواهد شد تا کاربران بیشتری را پشتیبانی کند.
+توسعه با GoLang:
+
+پس از یادگیری GoLang، سیستم چت برای سایت پیاده‌سازی خواهد شد. این سیستم قابلیت چندزبانه خواهد داشت و به ارتقای تجربه کاربری کمک می‌کند.
+نتیجه‌گیری:
+پروژه با رعایت استانداردهای توسعه نرم‌افزار و تمرکز بر بهینه‌سازی عملکرد، امنیت، و مدیریت داده‌ها پیش رفته است. با توجه به برنامه‌ریزی‌های آینده، انتظار می‌رود این پروژه به یک سیستم مقیاس‌پذیر و کاربردی تبدیل شود.
+
