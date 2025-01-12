@@ -36,7 +36,19 @@
             <button class="toggle-filter-btn" id="toggleFilterBtn">پنهان کردن فیلترها</button>
             <div class="filter-box" id="filterBox">
                 <h4>فیلترها</h4>
+                <form action="{{url()->current() }}" method="get">
+                    <select name="q" id="">
+                        <option value="2">کمترین قیمت</option>
+                        <option value="3">بیشترین قیمت</option>
+                        <option value="4">جدید ترین </option>
+                        <option value="0">بازدید  </option>
+
+                    </select>
+                    <button type="submit">ارسال </button>
+                </form>
+                <br>
                 <form id="filters-form"action="{{route('kala.id.properties.with',['id_category'=>request('id_category')])}}"method="get">
+
                     @foreach($propertis as $properti)
                         {{--                    @dd($properti)--}}
                         <!-- Color Filter -->
