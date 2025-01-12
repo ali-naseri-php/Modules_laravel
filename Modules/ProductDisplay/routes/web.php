@@ -22,6 +22,7 @@ Route::group([], function () {
 Route::prefix('kala')->group(function () {
     Route::get('', \Modules\ProductDisplay\Livewire\Kala\IndexKala::class)->name('kala');
     Route::get('/{id_category}', Modules\ProductDisplay\Livewire\KalaNoPropertis\AllKalaNoPropertis::class)->name('kala.id.properties.no');
+    Route::get('show/{id}', \Modules\ProductDisplay\Livewire\ShowProduct::class)->name('show.product');
 
 
     Route::get('/{id_category}/propertis', \Modules\ProductDisplay\Livewire\KalaWithPropertis\AllKalaWithPropertis::class)->name('kala.id.properties.with')->middleware('check.properties');

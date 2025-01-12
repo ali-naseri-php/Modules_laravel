@@ -75,7 +75,8 @@
                                  class="card-img-top" alt="Product Image">
                             <div class="card-body">
                                 <h5 class="card-title"> نام :{{$product->name}}</h5>
-                                <a class="card-text">جزئیات </a>
+                                <a class="card-text" href="{{route('show.product',['id'=>$product->id])}}">جزئیات </a>
+
                                 <p class="card-text">قیمت:{{$product->price}}</p>
                             </div>
                         </div>

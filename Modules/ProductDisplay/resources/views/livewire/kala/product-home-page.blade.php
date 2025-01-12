@@ -14,7 +14,7 @@
                     <img src="{{ asset('/' . $product->image1) }}" alt="{{ $product->name }}" class="product-img mb-3">
                     <h5 class="product-title">{{ $product->name }}</h5>
                     <p class="product-price mt-2">{{ $product->price }} تومان</p>
-                    <a href="{{ route('home', $product->id) }}" class="btn add-to-cart-btn">مشاهده جزئیات</a>
+                    <a  href="{{route('show.product',['id'=>$product->id])}}" class="btn add-to-cart-btn">مشاهده جزئیات</a>
                 </div>
             </div>
         @endforeach
