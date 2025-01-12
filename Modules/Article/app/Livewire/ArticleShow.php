@@ -9,10 +9,6 @@
     {
         public function render()
         {
-            if (true) {
-                echo 'ali naseri';
-            }
-
             return view('article::livewire.article-show',
                 ['articles' => Article::all()])->layout('homepagemodule::layouts.app');
         }
