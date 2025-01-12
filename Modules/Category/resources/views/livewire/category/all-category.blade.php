@@ -9,16 +9,24 @@
         @foreach($category as $item)
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm border-light" style="background-color: white;">
-                    <img src="{{ url($item->images) }}" alt="{{ $item->name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <img src="{{ url($item->images) }}" alt="{{ $item->name }}" class="card-img-top"
+                         style="height: 200px; object-fit: cover;">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-3">{{ $item->name }}</h5>
                         <div class="d-flex justify-content-center mt-2">
-                            <a href="{{'ali' }}" class="btn btn-info btn-sm mx-2">Edit</a>
-                            <form action="" method="post" class="d-inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
+                            @if(auth()->check())
+                                @can('update',\Modules\Category\Models\Category::class)
+                                    <a href="#" class="btn btn-info btn-sm mx-2">Edit</a>
+                                @endcan
+                                @can('delete',\Modules\Category\Models\Category::class)
+
+                                    <form action="" method="post" class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                @endcan
+                            @endif
                         </div>
                     </div>
                 </div>
