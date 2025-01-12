@@ -11,7 +11,7 @@ class SearchWithWhereServices
 
         $data =Searchable::where('title', 'LIKE', "%$name%")
             ->where('searchable_type','=',$where)->get();
-      dd($data);
+
         return  $data;
 
     }

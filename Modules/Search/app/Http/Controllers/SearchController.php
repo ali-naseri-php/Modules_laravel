@@ -15,16 +15,22 @@ class SearchController extends Controller
         if (empty($request->value) || $request->value === 'all') {
             // بارگذاری تنبل و استفاده از دیزاین پترن Service Container
             $searchService = app(SearchAllServices::class);
-            dd($searchService->search($request->name ));
+            $searchService =$searchService->search($request->name);
         }
         elseif ($request->value ==='category'){
             $searchService=app(SearchWithWhereServices::class);
-            $searchService->search($request->name,'category');
+            $searchService =$searchService->search($request->name,'category');
         }
         elseif ($request->value ==='article'){
             $searchService=app(SearchWithWhereServices::class);
-            $searchService->search($request->name,'article');
+            $searchService =  $searchService->search($request->name,'article');
         }
+        else{
+            $searchService=app(SearchWithWhereServices::class);
+            $searchService =  $searchService->search($request->name,'product');
+        }
+//        return view('', ['searchs' => $searchService->all()]);
+ return redirect()->back()->with(['searchs' => $searchService->all()]);
     }
 
 }

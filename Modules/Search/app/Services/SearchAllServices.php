@@ -8,7 +8,7 @@ class SearchAllServices
 {
     public function search($name)
     {
-        dd('all');
+
         $data =Searchable::where('title', 'LIKE', "%$name%")->get();
 //      dd($data);
         return  $data;
