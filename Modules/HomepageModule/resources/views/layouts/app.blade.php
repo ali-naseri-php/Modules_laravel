@@ -1,7 +1,8 @@
 <!doctype html>
-<html >
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
@@ -62,24 +63,39 @@
                 <div class="left"></div>
                 <div class="right"></div>
             </div>
-            <li class="nav-item @if(request()->is('/')) active @endif">
-                <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i>اصلی</a>
-            </li>
-            <li class="nav-item @if(request()->is('login') or request()->is('register')  ) active @endif">
-                <a class="nav-link" href="{{route('login.form')}}"><i class="fas fa-sign-in-alt"></i>ورود و ثبت نام</a>
-            </li>
-            <li class="nav-item @if(request()->is('articles')) active @endif">
-                <a class="nav-link" href="{{route('articles.index')}}"><i class="fas fa-newspaper"></i> مفاله ها</a>
-            </li>
-            <li class="nav-item @if(request()->is('kala')or request()->is('kala/*') ) active @endif">
-                <a class="nav-link" href="{{route('kala')}}"><i class="fas fa-shopping-cart"></i> کالا ها </a>
-            </li>
-            <li class="nav-item @if(request()->is('category')) active @endif">
-                <a class="nav-link" href="{{route('category')}}"><i class="fas fa-grip-vertical"></i>دسته بندی ها</a>
-            </li>
-            <li class="nav-item @if(request()->is('search')) active @endif">
-                <a class="nav-link" href="{{route('search')}}"><i class="fas fa-search"></i></a>
-            </li>
+            @if(Route::has('home'))
+
+                <li class="nav-item @if(request()->is('/')) active @endif">
+                    <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i>اصلی</a>
+                </li>
+            @endif
+            @if(Route::has('login.form'))
+                <li class="nav-item @if(request()->is('login') or request()->is('register')  ) active @endif">
+                    <a class="nav-link" href="{{route('login.form')}}"><i class="fas fa-sign-in-alt"></i>ورود و ثبت نام</a>
+                </li>
+            @endif
+            @if(Route::has('article.index'))
+                <li class="nav-item @if(request()->is('articles')) active @endif">
+                    <a class="nav-link" href="{{route('articles.index')}}"><i class="fas fa-newspaper"></i> مفاله ها</a>
+                </li>
+            @endif
+            @if(Route::has('kala'))
+                <li class="nav-item @if(request()->is('kala')or request()->is('kala/*') ) active @endif">
+                    <a class="nav-link" href="{{route('kala')}}"><i class="fas fa-shopping-cart"></i> کالا ها </a>
+                </li>
+            @endif
+            @if(Route::has('category'))
+                <li class="nav-item @if(request()->is('category')) active @endif">
+                    <a class="nav-link" href="{{route('category')}}"><i class="fas fa-grip-vertical"></i>دسته بندی
+                        ها</a>
+                </li>
+            @endif
+            @if(Route::has('search'))
+
+                <li class="nav-item @if(request()->is('search')) active @endif">
+                    <a class="nav-link" href="{{route('search')}}"><i class="fas fa-search"></i></a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>
@@ -132,10 +148,18 @@
             <div class="col-md-4 mb-4">
                 <h5>لینک‌های مفید</h5>
                 <ul class="list-unstyled">
-                    <li><a href="{{route('home')}}" class="text-white">صفحه اصلی</a></li>
-                    <li><a href="{{route('articles.index')}}" class="text-white">مقالات</a></li>
-                    <li><a href="{{route('kala')}}" class="text-white">کالاها</a></li>
-                    <li><a href="{{route('category')}}" class="text-white">دسته‌بندی‌ها</a></li>
+                    @if(Route::has('home'))
+                        <li><a href="{{route('home')}}" class="text-white">صفحه اصلی</a></li>
+                    @endif
+                    @if(Route::has('article.index'))
+                        <li><a href="{{route('articles.index')}}" class="text-white">مقالات</a></li>
+                    @endif
+                    @if(Route::has('kala'))
+                        <li><a href="{{route('kala')}}" class="text-white">کالاها</a></li>
+                    @endif
+                    @if(Route::has('category'))
+                        <li><a href="{{route('category')}}" class="text-white">دسته‌بندی‌ها</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
