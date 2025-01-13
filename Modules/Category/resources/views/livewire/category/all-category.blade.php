@@ -16,11 +16,11 @@
                         <div class="d-flex justify-content-center mt-2">
                             @if(auth()->check())
                                 @can('update',\Modules\Category\Models\Category::class)
-                                    <a href="{{route('category.edite')}}" class="btn btn-info btn-sm mx-2">Edit</a>
+                                    <a href="{{route('category.edite',['id'=>$item->id])}}" class="btn btn-info btn-sm mx-2">Edit</a>
                                 @endcan
                                 @can('delete',\Modules\Category\Models\Category::class)
 
-                                    <form action="{{route('category.delete')}}" method="post" class="d-inline-block">
+                                    <form action="{{route('category.delete'),['id'=>$item->id]}}" method="post" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

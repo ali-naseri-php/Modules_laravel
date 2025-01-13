@@ -43,7 +43,7 @@
                         <option value="0">بازدید  </option>
 
                     </select>
-                    <button type="submit">ارسال </button>
+                    <button type="submit">نمایش </button>
                 </form>
                 @foreach($categorys as $category)
                     <!-- Color Filter -->
