@@ -24,7 +24,6 @@ services:
             - laravel_network
         depends_on:
             - app
-
     mysql:
         image: mysql:8.0
         container_name: laravel_mysql

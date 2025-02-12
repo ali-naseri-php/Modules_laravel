@@ -2,9 +2,7 @@
 
 namespace Modules\ProductDisplay\Services\Kala;
 
-use Illuminate\Support\Facades\Cache;
 use Modules\ProductDisplay\Models\Propertie;
-use Modules\ProductManagement\Models\Category;
 
 
 class PropertisServices

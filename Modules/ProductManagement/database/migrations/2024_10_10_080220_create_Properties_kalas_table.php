@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Properties_kalas', function (Blueprint $table) {
+        Schema::create('properties_kalas', function (Blueprint $table) {
             $table->id();
-            
+
             $table->timestamps();
         });
     }

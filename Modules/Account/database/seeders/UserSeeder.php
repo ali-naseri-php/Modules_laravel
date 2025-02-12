@@ -5,7 +5,7 @@ namespace Modules\Account\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\Account\Models\User;
 
-class AccountSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     public function run()
     {

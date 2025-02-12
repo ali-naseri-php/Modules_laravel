@@ -2,11 +2,9 @@
 
 namespace Modules\ProductManagement\Services\Kala;
 
-use Illuminate\Support\Facades\Cache;
 use Modules\ProductManagement\Events\ProductCreated;
-use Modules\ProductManagement\Models\Category;
 use Modules\ProductManagement\Models\Kala;
-use Modules\ProductManagement\Models\propertieKala;
+use Modules\ProductManagement\Models\PropertieKala;
 
 
 class StoreKalaServices
@@ -37,7 +35,7 @@ class StoreKalaServices
         if (is_array($data['propertis'])) {
 
             foreach ($data['propertis'] as $key => $value) {
-                $kalapro = new propertieKala();
+                $kalapro = new PropertieKala();
                 $kalapro->name = $value;
                 $kalapro->id_properit = $key;
                 $kalapro->id_kala = $kala->id;

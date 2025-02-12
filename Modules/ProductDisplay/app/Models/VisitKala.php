@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\ProductDisplay\Database\Factories\VisitKalaFactory;
 
-class visit_kala extends Model
+class VisitKala extends Model
 {
     use HasFactory;
     protected  $table ='visit_kala';
