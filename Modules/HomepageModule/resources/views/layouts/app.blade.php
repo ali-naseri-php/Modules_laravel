@@ -113,7 +113,7 @@
                 <h5>تماس با ما</h5>
                 <ul class="list-unstyled">
                     <li>تلفن: <a href="tel:+989361819903" class="text-white">09361819903</a></li>
-                    <li>آدرس: تهران، ایران</li>
+                    <li>آدرس: مشهد، ایران</li>
                 </ul>
             </div>
 
